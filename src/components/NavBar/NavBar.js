@@ -15,6 +15,8 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import ShoppingCart from './CartWidget.js';
+
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -177,6 +179,8 @@ const ResponsiveAppBar = () => {
                             inputProps={{ 'aria-label': 'search' }}
                         />
                     </Search>
+
+                    <ShoppingCart/>
 
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
