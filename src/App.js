@@ -1,12 +1,16 @@
 import ResponsiveAppBar from './components/NavBar/NavBar';
-import ItemListContenedor from './components/ItemListContainer';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import ItemCount from './components/ItemCount/ItemCount';
 
 function App() {
   return (
     <div>
       <ResponsiveAppBar />
       
-      <ItemListContenedor usuario="Regina Marinozzi" oferta="Todo por $0,99" />
+      <ItemListContainer usuario="Regina Marinozzi" oferta="Todo por $0,99" />
+
+      <ItemCount/>
+
     </div>
   );
 }

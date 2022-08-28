@@ -1,0 +1,9 @@
+.item-count-container {
+  width: 80%;
+  margin: 50px auto;
+}
+
+.item-count-container .count-number {
+  margin: 0 20px;
+}
+/*# sourceMappingURL=ItemCount.css.map */

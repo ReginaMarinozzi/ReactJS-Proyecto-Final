@@ -1,7 +1,7 @@
-import './ItemListContainer.css' 
+import './ItemListContainer.scss'; 
 
 
-const ItemListContenedor = ( {usuario = "Regina Marinozzi", oferta = "Todo por $0,99"} ) => {
+const ItemListContainer = ( {usuario = "Regina Marinozzi", oferta = "Todo por $0,99"} ) => {
 
 
     return (
@@ -13,4 +13,4 @@ const ItemListContenedor = ( {usuario = "Regina Marinozzi", oferta = "Todo por $
     )
 }
 
-export default ItemListContenedor
+export default ItemListContainer
