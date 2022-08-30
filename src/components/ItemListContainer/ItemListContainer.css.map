@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "AAEA,AAAA,QAAQ,CAAC;EACL,UAAU,EAAE,KAAK;CACpB",
+    "mappings": "AAEA,AAAA,kBAAkB,CAAA;EACd,UAAU,EAAE,KAAK;CACpB",
     "sources": [
         "ItemListContainer.scss"
     ],

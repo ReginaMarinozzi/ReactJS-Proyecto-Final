@@ -3,11 +3,13 @@ import { useState } from "react";
 import * as React from 'react';
 import Button from '@mui/material/Button';
 
-const ItemCount = () => {
+const ItemCount = ({stock}) => {
   const [counter, setCounter] = useState(0);
 
   const handleSumar = () => {
-    setCounter(counter + 1);
+    if (counter < stock ){ 
+      setCounter(counter + 1);}
+    
   };
 
   const handleRestar = () => {
@@ -18,12 +20,11 @@ const ItemCount = () => {
 
   return (
     <div className="item-count-container">
-        <h2> Contador </h2>
-      <hr />
+      
       <Button variant="contained" onClick={handleRestar}>-</Button>
       <span className='count-number'>{counter}</span>
       <Button variant="contained" onClick={handleSumar}>+</Button>
-     
+
     </div>
   );
 };
