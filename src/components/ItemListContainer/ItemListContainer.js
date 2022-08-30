@@ -1,4 +1,3 @@
-import "./ItemListContainer.scss";
 import { useState, useEffect } from "react";
 import getData from "../../helpers/getData";
 import ItemList from "../ItemList/ItemList";

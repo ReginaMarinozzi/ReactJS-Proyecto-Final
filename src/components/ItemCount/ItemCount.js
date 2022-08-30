@@ -1,15 +1,17 @@
-import "./ItemCount.scss";
 import { useState } from "react";
 import * as React from 'react';
 import Button from '@mui/material/Button';
+import { Container } from "@mui/system";
 
-const ItemCount = ({stock}) => {
+
+const ItemCount = ({ stock }) => {
   const [counter, setCounter] = useState(0);
 
   const handleSumar = () => {
-    if (counter < stock ){ 
-      setCounter(counter + 1);}
-    
+    if (counter < stock) {
+      setCounter(counter + 1);
+    }
+
   };
 
   const handleRestar = () => {
@@ -19,12 +21,12 @@ const ItemCount = ({stock}) => {
   };
 
   return (
-    <div className="item-count-container">
-      
-      <Button variant="contained" onClick={handleRestar}>-</Button>
+    <div >
+      <Container/>
+      <Button variant="contained" sx={{ padding: `5px` }} onClick={handleRestar}>-</Button>
       <span className='count-number'>{counter}</span>
-      <Button variant="contained" onClick={handleSumar}>+</Button>
-
+      <Button variant="contained" sx={{ padding: `5px` }} onClick={handleSumar}>+</Button>
+      <Container />
     </div>
   );
 };

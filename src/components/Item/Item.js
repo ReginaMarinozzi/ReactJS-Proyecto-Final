@@ -1,22 +1,40 @@
 import ItemCount from '../../components/ItemCount/ItemCount';
 import * as React from 'react';
 import Button from '@mui/material/Button';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
 
 const Item = ({ producto }) => {
     return (
         <div>
+            <Card sx={{ maxWidth: 345 }} elevation={5}>
+                <CardMedia
+                    component="img"
+                    height="auto"
+                    image={producto.img}
+                    alt={producto.descripcion}
+                />
+                <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                        {producto.nombre}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                        <p>Precio $ {producto.precio}</p>
+                        <p>Marca: {producto.marca}</p>
+                        <p>{producto.descripcion}</p>
+                        <small>Stock disponible: {producto.stock}</small>
+                        <ItemCount stock={producto.stock} />
+                    </Typography>
+                </CardContent>
+                <CardActions>
+                    <Button variant="contained" >Agregar al carrito</Button>
+                </CardActions>
 
-            <img src={producto.img} alt={producto.descripcion} />
+            </Card>
 
-            <h4>{producto.nombre}</h4>
-
-            <p>Precio $ {producto.precio}</p>
-            <p>Marca: {producto.marca}</p>
-            <p>{producto.descripcion}</p>
-
-            <small>Stock disponible: {producto.stock}</small>
-            <ItemCount stock={producto.stock} />
-            <Button variant="contained">Agregar al carrito</Button>
 
         </div>
     )
