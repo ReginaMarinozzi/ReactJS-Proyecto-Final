@@ -2,6 +2,7 @@ import ItemDetail from '../ItemDetail/ItemDetail';
 import React from 'react';
 import { useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
+import getData from '../../helpers/getData';
 
 const ItemDetailContainer = () => {
 
