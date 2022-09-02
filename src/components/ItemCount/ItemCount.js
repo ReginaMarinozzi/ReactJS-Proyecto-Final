@@ -23,9 +23,10 @@ const ItemCount = ({ stock }) => {
   return (
     <div >
       <Container/>
-      <Button variant="contained" sx={{ padding: `5px` }} onClick={handleRestar}>-</Button>
+      <Button variant="contained" sx={{ padding: "10px" }} onClick={handleRestar}>-</Button>
       <span className='count-number'>{counter}</span>
-      <Button variant="contained" sx={{ padding: `5px` }} onClick={handleSumar}>+</Button>
+      <Button variant="contained" sx={{ padding: "10px" }} onClick={handleSumar}>+</Button>
+      <Button variant="contained" >Agregar al carrito</Button>
       <Container />
     </div>
   );

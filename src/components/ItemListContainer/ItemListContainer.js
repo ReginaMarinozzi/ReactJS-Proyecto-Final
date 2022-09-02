@@ -4,7 +4,7 @@ import ItemList from "../ItemList/ItemList";
 
 
 const ItemListContainer = () => {
-    const [products, setProducts] = useState([]);
+    const [productos, setProducts] = useState([]);
 
     useEffect(() => {
         getData()
@@ -15,7 +15,7 @@ const ItemListContainer = () => {
 
     return (
         <div>
-            <ItemList productos={products} />
+            <ItemList productos={productos} />
         </div>
 
     )

@@ -6,8 +6,8 @@ const ItemList = ({ productos = [] }) => {
         <Container sx={{ padding: `100px`}}>
             <Grid container my={4} rowSpacing={2} columnSpacing={1} >
                 {productos.map((product) => {
-                    return <Grid item md={4}>
-                    <Item producto={product} key={product.id} />
+                    return <Grid item md={4}  key={product.id}>
+                    <Item producto={product} />
                    </Grid>              
                 })}
             </Grid>

@@ -1,11 +1,12 @@
 import ItemCount from '../../components/ItemCount/ItemCount';
 import * as React from 'react';
-import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import { Link } from 'react-router-dom';
+
 
 const Item = ({ producto }) => {
     return (
@@ -22,17 +23,16 @@ const Item = ({ producto }) => {
                         {producto.nombre}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                        <p>Precio $ {producto.precio}</p>
-                        <p>Marca: {producto.marca}</p>
-                        <p>{producto.descripcion}</p>
-                        <small>Stock disponible: {producto.stock}</small>
-                        <ItemCount stock={producto.stock} />
+                        <span>spanrecio $ {producto.precio}</span>
+                        <span>Marca: {producto.marca}</span>
+                        <span>{producto.descripcion}</span>
+                        <span>Stock disponible: {producto.stock}</span>      
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button variant="contained" >Agregar al carrito</Button>
+                    <Link to={`/item/${producto.id}`}>Ver más</Link>
+                <ItemCount stock={producto.stock} />
                 </CardActions>
-
             </Card>
 
 
