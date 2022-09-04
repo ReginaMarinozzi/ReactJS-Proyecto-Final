@@ -9,6 +9,7 @@ const stock = [
         precio: 5499,
         stock: 0,
         img: "https://i.ibb.co/fkL6cJb/accoje.jpg",
+        categoria: "skincare",
     },
     {
         id: 2,
@@ -19,6 +20,7 @@ const stock = [
         precio: 5399,
         stock: 30,
         img: "https://i.ibb.co/T40rC27/cledepeau.jpg",
+        categoria: "skincare",
     },
     {
         id: 3,
@@ -29,6 +31,7 @@ const stock = [
         precio: 3799,
         stock: 20,
         img: "https://i.ibb.co/ngNNztM/beloved.jpg",
+        categoria: "haircare"
     },
     {
         id: 4,
@@ -39,6 +42,7 @@ const stock = [
         precio: 2899,
         stock: 60,
         img: "https://i.ibb.co/9Ty7WG5/dewytree.jpg",
+        categoria: "skincare"
     },
     {
         id: 5, 
@@ -49,6 +53,7 @@ const stock = [
         precio: 7999,
         stock: 50,
         img: "https://i.ibb.co/6YzdpKj/drg.jpg",
+        categoria: "makeup"
     },
     {
         id: 6,
@@ -59,6 +64,7 @@ const stock = [
         precio: 9499,
         stock: 10,
         img: "https://i.ibb.co/hm9zM5G/toneup.jpg",
+        categoria: "makeup"
     },
 ];
 

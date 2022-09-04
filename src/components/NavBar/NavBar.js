@@ -16,10 +16,25 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import ShoppingCart from './CartWidget.js';
+import { Link } from 'react-router-dom';
 
 
-const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = [
+
+    {
+        categoria: 'Skincare',
+        link: "/productos/skincare"
+    },
+    {
+        categoria: 'Haircare',
+        link: '/productos/haircare'
+    },
+    {
+        categoria: 'Makeup',
+        link: '/productos/makeup'
+    }
+];
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -132,9 +147,10 @@ const ResponsiveAppBar = () => {
                                 display: { xs: 'block', md: 'none' },
                             }}
                         >
-                            {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
+
+                            {pages.map((page, index) => (
+                                <MenuItem key={index} onClick={handleCloseNavMenu}>
+                                    <Link to={page.link}>{page.categoria}</Link>
                                 </MenuItem>
                             ))}
                         </Menu>
@@ -159,14 +175,19 @@ const ResponsiveAppBar = () => {
                         LOGO
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                        {pages.map((page) => (
+                        {pages.map((page, index) => (
+
                             <Button
-                                key={page}
+                                key={index}
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
+                                
                             >
-                                {page}
+                                <Link key={page.id} to={page.link}>
+                                    {page.categoria}
+                                </Link>
                             </Button>
+
                         ))}
                     </Box>
 
@@ -180,7 +201,7 @@ const ResponsiveAppBar = () => {
                         />
                     </Search>
 
-                    <ShoppingCart/>
+                    <ShoppingCart />
 
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
