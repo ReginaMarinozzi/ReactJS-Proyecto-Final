@@ -3,6 +3,7 @@ import React from 'react';
 import { useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import getData from '../../helpers/getData';
+import { Container } from '@mui/system';
 
 const ItemDetailContainer = () => {
 
@@ -25,9 +26,11 @@ const ItemDetailContainer = () => {
     }, [itemId])
 
   return (
-    <div>
+    <Container sx={{ marginTop: 10}}>
         {loading ?  <h2>Loading...</h2> : <ItemDetail item={item} />}
-    </div>
+    </Container>
+        
+
   )
 }
 

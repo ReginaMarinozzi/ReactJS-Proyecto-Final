@@ -96,15 +96,14 @@ const ResponsiveAppBar = () => {
     };
 
     return (
-        <AppBar position="fixed">
+        <AppBar position="fixed" sx={{ bgcolor: 'pink'}}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
                     <Typography
+                        component={Link} to='/'
                         variant="h6"
                         noWrap
-                        component="a"
-                        href="/"
                         sx={{
                             mr: 2,
                             display: { xs: 'none', md: 'flex' },
@@ -149,18 +148,17 @@ const ResponsiveAppBar = () => {
                         >
 
                             {pages.map((page, index) => (
-                                <MenuItem key={index} onClick={handleCloseNavMenu}>
-                                    <Link to={page.link}>{page.categoria}</Link>
+                                <MenuItem key={index} onClick={handleCloseNavMenu} component={Link} to={page.link}>
+                                    {page.categoria}
                                 </MenuItem>
                             ))}
                         </Menu>
                     </Box>
                     <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
                     <Typography
+                        component={Link} to='/'
                         variant="h5"
                         noWrap
-                        component="a"
-                        href=""
                         sx={{
                             mr: 2,
                             display: { xs: 'flex', md: 'none' },
@@ -172,25 +170,23 @@ const ResponsiveAppBar = () => {
                             textDecoration: 'none',
                         }}
                     >
-                        LOGO
+                        R STORE
+
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page, index) => (
 
                             <Button
                                 key={index}
+                                component={Link} to={page.link}
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
-                                
                             >
-                                <Link key={page.id} to={page.link}>
-                                    {page.categoria}
-                                </Link>
+                                {page.categoria}
                             </Button>
 
                         ))}
                     </Box>
-
                     <Search>
                         <SearchIconWrapper>
                             <SearchIcon />

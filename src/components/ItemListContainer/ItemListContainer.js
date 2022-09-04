@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import getData from "../../helpers/getData";
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
+import Container from '@mui/material/Container';
 
 
 const ItemListContainer = () => {
@@ -32,9 +33,9 @@ const ItemListContainer = () => {
 
 
     return (
-        <div>
+        <Container sx={{ marginTop: 10}}>
             {loading ?  <h2>Loading...</h2> :  <ItemList productos={productos}  />}
-        </div>
+        </Container>
 
     )
 };

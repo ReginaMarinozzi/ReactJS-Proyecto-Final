@@ -1,17 +1,18 @@
-import ItemCount from '../../components/ItemCount/ItemCount';
 import * as React from 'react';
+import { Link } from 'react-router-dom';
+
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Link } from 'react-router-dom';
+import Button from '@mui/material/Button';
 
 
 const Item = ({ producto }) => {
     return (
         <div>
-            <Card sx={{ maxWidth: 345 }} elevation={5}>
+            <Card sx={{ maxWidth: 345, paddingBottom: 2 }} elevation={5}>
                 <CardMedia
                     component="img"
                     height="auto"
@@ -22,16 +23,14 @@ const Item = ({ producto }) => {
                     <Typography gutterBottom variant="h5" component="div">
                         {producto.nombre}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        <span>spanrecio $ {producto.precio}</span>
-                        <span>Marca: {producto.marca}</span>
-                        <span>{producto.descripcion}</span>
-                        <span>Stock disponible: {producto.stock}</span>      
+                    <Typography variant="body1" color="text.secondary">
+                        <span>Precio $ {producto.precio} </span>
+                        <span>Marca: {producto.marca} </span>
+                        <span>Stock disponible: {producto.stock} </span>      
                     </Typography>
                 </CardContent>
-                <CardActions>
-                    <Link to={`/item/${producto.id}`}>Ver más</Link>
-                <ItemCount stock={producto.stock} />
+                <CardActions sx={{ justifyContent: 'center'}}>
+                    <Button component={Link} to={`/item/${producto.id}`} variant="outlined">Ver más</Button>
                 </CardActions>
             </Card>
 

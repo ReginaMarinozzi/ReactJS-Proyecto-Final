@@ -3,12 +3,12 @@ import Item from "../Item/Item"
 
 const ItemList = ({ productos = [] }) => {
     return (
-        <Container sx={{ padding: `100px`}}>
+        <Container>
             <Grid container my={4} rowSpacing={2} columnSpacing={1} >
                 {productos.map((product) => {
-                    return <Grid item md={4}  key={product.id}>
-                    <Item producto={product} />
-                   </Grid>              
+                    return <Grid item md={4} key={product.id}>
+                        <Item producto={product} />
+                    </Grid>
                 })}
             </Grid>
         </Container>
