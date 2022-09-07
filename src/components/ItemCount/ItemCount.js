@@ -1,7 +1,7 @@
 import { useState } from "react";
 import * as React from 'react';
 import { Container } from "@mui/system";
-import Button from '@mui/material/button';
+import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 
 const ItemCount = ({ stock }) => {

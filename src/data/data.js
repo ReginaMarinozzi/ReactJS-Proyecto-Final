@@ -1,5 +1,6 @@
 
-const stock = [ 
+
+const stock = [
 
     {
         id: 1,
@@ -62,7 +63,7 @@ const stock = [
         categoria: "skincare"
     },
     {
-        Id: 7,
+        id: 7,
         marca: "Costailor",
         nombre: "Toner",
         descripcion: "Tónico en gel sin aceite.Estiramiento de la piel, contiene 90% de ingredientes naturales, hidratante Extra Fino.",
@@ -72,7 +73,7 @@ const stock = [
         categoria: "skincare"
     },
     {
-        Id: 8,
+        id: 8,
         marca: "Chanel",
         nombre: "Chanel Boy",
         descripcion: "Boy Chanel de Chanel es una fragancia de la familia olfativa Aromática Fougère para Hombres y Mujeres. Boy Chanel se lanzó en 2016. La Nariz detrás de esta fragrancia es Olivier Polge.",
@@ -82,7 +83,7 @@ const stock = [
         categoria: "fragance"
     },
     {
-        Id: 9,
+        id: 9,
         marca: "Elizabeth Arden",
         nombre: "Fragancia green tea",
         descripcion: "Un chispeante elíxir que energiza y despierta los sentidos. Un mezcla exótica de hojas aromáticas, hierbas y notas cítricas que prometen estimular y reforzar su espíritu.",
@@ -92,7 +93,7 @@ const stock = [
         categoria: "fragance"
     },
     {
-        Id: 10,
+        id: 10,
         marca: "Narciso",
         nombre: "Narciso",
         descripcion: "El perfume del misterio de la atracción. El encuentro entre un jazmín aterciopelado y maderas sensuales en torno a un corazón de almizcle empolvado.",
@@ -102,7 +103,7 @@ const stock = [
         categoria: "fragance"
     },
     {
-        Id: 11,
+        id: 11,
         marca: "Kylie Skin",
         nombre: "Hand Cream",
         descripcion: "Nuestra deliciosa Crema de Manos es tu salvadora de manos secas. Formulada con manteca de karité hidratante y una mezcla de aceites botánicos nutritivos, esta fórmula cremosa y no grasosa mima las manos con una hidratación profunda y las protege de la sequedad. Tus manos se sienten suaves, cuidadas y sedosas.",
@@ -112,7 +113,7 @@ const stock = [
         categoria: "skincare"
     },
     {
-        Id: 12,
+        id: 12,
         marca: "Gucci",
         nombre: "Gucci Bloom",
         descripcion: "Gucci Bloom de Gucci es una fragancia de la familia olfativa Floral para Mujeres. Gucci Bloom se lanzó en 2017. La Nariz detrás de esta fragrancia es Alberto Morillas. La Nota de Salida es jazmín; la Nota de Corazón es nardos; la Nota de Fondo es Camilla de Rangoon.",
@@ -122,7 +123,7 @@ const stock = [
         categoria: "fragance"
     },
     {
-        Id: 13,
+        id: 13,
         marca: "Narciso",
         nombre: "Narciso Fleura",
         descripcion: "Fleur Musc for Her de Narciso Rodriguez es una fragancia de la familia olfativa Almizcle Floral Amaderado para Mujeres. Fleur Musc for Her se lanzó en 2017. Fleur Musc for Her fue creada por Calice Becker y Sonia Constant. La Nota de Salida es pimienta rosa; las Notas de Corazón son rosa, almizcle y peonía; las Notas de Fondo son pachulí, violeta y ámbar.",
@@ -132,7 +133,7 @@ const stock = [
         categoria: "fragance"
     },
     {
-        Id: 14,
+        id: 14,
         marca: "Nailberry",
         nombre: "Pink",
         descripcion: "Los esmaltes de uñas Nailberry están elaborados con una nueva tecnología patentada que hace que el producto sea más resistente y duradero",
@@ -142,7 +143,7 @@ const stock = [
         categoria: "esmalte"
     },
     {
-        Id: 15,
+        id: 15,
         marca: "Fenty Beauty",
         nombre: "Gloss",
         descripcion: "Un brillo labial definitivo que debes tener con un brillo explosivo que se siente tan bien como se ve.",
@@ -152,7 +153,7 @@ const stock = [
         categoria: "makeup"
     },
     {
-        Id: 16,
+        id: 16,
         marca: "Milk",
         nombre: "Florence",
         descripcion: "Un polvo corporal brillante sin talco que empolva suavemente la piel con un brillo total. Las perlas viajeras de color y el polvo de diamante se difunden y brindan luminosidad desde todos los ángulos. ",
@@ -162,17 +163,7 @@ const stock = [
         categoria: "makeup"
     },
     {
-        Id: 17,
-        marca: "Dior",
-        nombre: "Capture Totale",
-        descripcion: "La mejor crema* antiedad global nacida de la investigación de las células madre y de la especialización floral de Dior.",
-        precio: 25000,
-        stock: 30,
-        img: "https://i.ibb.co/6t3vZ5x/diorjuventud.jpg",
-        categoria: "skincare"
-    },
-    {
-        Id: 17,
+        id: 17,
         marca: "Dior",
         nombre: "Dior Labial",
         descripcion: "Rouge Dior tiene ahora un nuevo armario de acabados de alta costura. Traspasando los límites del acabado mate, el nuevo Rouge Dior combina la pasión por la alta costura, el color y los tejidos con la innovación cosmética.",
@@ -182,7 +173,7 @@ const stock = [
         categoría: "makeup"
     },
     {
-        Id: 18,
+        id: 18,
         marca: "Herbivore",
         nombre: "Jasmine Green tea",
         descripcion: "El agua de jazmín orgánico está infundida con té verde rico en antioxidantes y una combinación clarificadora de corteza de sauce rica en salicina y aloe vera.",
@@ -192,7 +183,7 @@ const stock = [
         categoria: "skincare"
     },
     {
-        Id: 19,
+        id: 19,
         marca: "Chanel",
         nombre: "Le teint ultra",
         descripcion: "ULTRA LE TEINT, la base de maquillaje fluida que sobrepasa todos los límites: larga duración, confort y acabado perfecto natural.",
@@ -202,7 +193,7 @@ const stock = [
         categoria: "makeup"
     },
     {
-        Id: 20,
+        id: 20,
         marca: "Banobagi",
         nombre: "Cleansing Foam",
         descripcion: "Ph-balanced cleansing gel-to-foam which removes skin impurities and leaves a hydrated complexion.",
@@ -212,7 +203,7 @@ const stock = [
         categoria: "skincare"
     },
     {
-        Id: 21,
+        id: 21,
         marca: "Avon",
         nombre: "Labial",
         descripcion: "El labial powerstay en barra es intransferible y dura hasta 10hs en tus labios. Es liviano y súper cómodo.",
@@ -222,7 +213,7 @@ const stock = [
         categoria: "makeup"
     },
     {
-        Id: 22,
+        id: 22,
         marca: "The ordinary",
         nombre: "AHA 30% BHA 2%",
         descripcion: "El peeling con AHA al 30% y BHA al 2% es un tratamiento para la capa superficial de la piel del cutis que lo exfolia para dejarlo más claro y luminoso. Combate las imperfecciones visibles y, con un uso semanal continuo, descongestiona los poros y reduce las líneas de expresión para aclarar y rejuvenecer el cutis.",
@@ -232,7 +223,7 @@ const stock = [
         categoria: "skincare"
     },
     {
-        Id: 23,
+        id: 23,
         marca: "Gucci",
         nombre: "Gucci Bloom",
         descripcion: "Gucci Bloom de Gucci es una fragancia de la familia olfativa Floral para Mujeres. Gucci Bloom se lanzó en 2017. La Nariz detrás de esta fragrancia es Alberto Morillas. La Nota de Salida es jazmín; la Nota de Corazón es nardos; la Nota de Fondo es Camilla de Rangoon.",
@@ -242,7 +233,7 @@ const stock = [
         categoria: "fragance"
     },
     {
-        Id: 24,
+        id: 24,
         marca: "Milk",
         nombre: "Florence",
         descripcion: "Un rubor cremoso que se seca hasta un acabado en polvo que no se desliza ni se desliza de la piel. El ingrediente secreto es la arcilla de caolín, un absorbente de aceite que ayuda a que el color se mantenga.",
@@ -252,7 +243,7 @@ const stock = [
         categoria: "makeup"
     },
     {
-        Id: 25,
+        id: 25,
         marca: "Becca",
         nombre: "Base Filtrante",
         descripcion: "No se trata de una simple base de maquillaje, ese es el secreto que se esconde detrás de la legendaria luminosidad de BECCA. Su fórmula incluye tres tipos de perlas filtrantes luminiscentes de excepcional calidad. Cada perla añade a la base un toque diferente de difusión lumínica.",
@@ -262,7 +253,7 @@ const stock = [
         categoria: "makeup"
     },
     {
-        Id: 26,
+        id: 26,
         marca: "Dior",
         nombre: "Junon",
         descripcion: "Una laca de uñas de alta costura con efecto gel. Dior Vernis couture color, gel-shine, laca de uñas de larga duración 10ml 494 Junon.",
@@ -272,7 +263,7 @@ const stock = [
         categoria: "esmalte"
     },
     {
-        Id: 27,
+        id: 27,
         marca: "Milk",
         nombre: "Florence",
         descripcion: "Una mascarilla peel-off violeta tornasolada que nos ayuda a resetear nuestra piel después de una semana agotadora. El carbón purificador extrae la suciedad y el aceite, mientras que el hamamelis mantiene la piel linda y feliz",
@@ -282,7 +273,7 @@ const stock = [
         categoria: "skincare"
     },
     {
-        Id: 28,
+        id: 28,
         marca: "Kirei",
         nombre: "Bijindo",
         descripcion: "Bijindo Kirei Lift Up es un conjunto de productos óptimo para pieles que presentan signos de arrugas y flacidez. Con tecnología sobresaliente de crema de masaje y máscara de enzimas capaces de mejorar la elasticidad y prevenir las arrugas, brindando un efecto de elevación muscular pronunciado para ayudar a una piel más firme y joven.",
@@ -292,7 +283,7 @@ const stock = [
         categoria: "skincare"
     },
     {
-        Id: 29,
+        id: 29,
         marca: "Dior",
         nombre: "Labial",
         descripcion: "Rouge Dior tiene ahora un nuevo armario de acabados de alta costura. Traspasando los límites del acabado mate, el nuevo Rouge Dior combina la pasión por la alta costura, el color y los tejidos con la innovación cosmética",
@@ -302,7 +293,7 @@ const stock = [
         categoria: "makeup"
     },
     {
-        Id: 30,
+        id: 30,
         marca: "Milk",
         nombre: "Florence",
         descripcion: "Una crema hidratante ligera como una pluma que le da a nuestra piel todas las buenas sensaciones de las que enamorarse. La fórmula sedosa incluye dos tipos de extractos de flor de loto y vitamina B12 para ayudar a controlar la grasa y calmar la piel",
@@ -312,7 +303,7 @@ const stock = [
         categoria: "skincare"
     },
     {
-        Id: 31,
+        id: 31,
         marca: "Dolce&Gabbana",
         nombre: "Foundation",
         descripcion: "Esta fórmula innovadora cuenta con un innovador sistema MatteAdapt que corrige automáticamente los signos de imperfecciones para mantener una tez impecable por más tiempo. Una mezcla especial de vitaminas nutritivas, minerales y protección SPF20 enriquecen la fórmula.",
@@ -322,7 +313,7 @@ const stock = [
         categoria: "makeup"
     },
     {
-        Id: 32,
+        id: 32,
         marca: "Estée Lauder",
         nombre: "DayWear Matte",
         descripcion: "Esta crema en gel fresca y ultraligera, con nuestra poderosa tecnología MoistureMatte, controla la grasa y ayuda a la piel a minimizar el brillo visible; dando a la piel un acabado mate saludable. Reduce el aspecto de los poros. Ayuda a resistir los primeros signos del envejecimiento. La piel se siente fresca, tersa, suave, hidratada.",
@@ -332,7 +323,7 @@ const stock = [
         categoria: "skincare"
     },
     {
-        Id: 33,
+        id: 33,
         marca: "Dior",
         nombre: "Foundation",
         descripcion: "El fondo de maquillaje Dior Backstage Face & Body Foundation es el secreto de los maquilladores Dior para crear al instante una tez perfecta y con un resultado profesional. Ofrece un acabado luminoso con cobertura modulable: del acabado más natural a la perfección de la alta cobertura",
@@ -342,7 +333,7 @@ const stock = [
         categoria: "makeup"
     },
     {
-        Id: 34,
+        id: 34,
         marca: "Marc Jacobs",
         nombre: "Foundation",
         descripcion: "Extra Shot Caffeine Concealer and Foundation de Marc Jacobs es un nuevo corrector y base de maquillaje dos en uno con infusión de cafeína que ofrece una apariencia natural, cobertura total y uso durante todo el día para iluminar visiblemente y revitalizar todo tipo de piel. ",
@@ -352,7 +343,7 @@ const stock = [
         categoria: "makeup"
     },
     {
-        Id: 35,
+        id: 35,
         marca: "Cosme De Dicte",
         nombre: "Clay Blanc",
         descripcion: "A facial cleanser that polishes the face with clay and herbs.A complete cleanse for whiteheads and blackheads, even banishing dullness.",
@@ -362,7 +353,7 @@ const stock = [
         categoria: "skincare"
     },
     {
-        Id: 36,
+        id: 36,
         marca: "Glow Recipe",
         nombre: "Watermelon Glow",
         descripcion: " Rellena tu piel llenando cada capa de piel con una hidratación intensa y jugosa con el suero hialurónico Plum Plump. Su textura sedosa en gel de agua está impregnada de ciruela jugosa y 5 pesos moleculares de ácido hialurónico de próxima generación que llenan cada capa de la piel con hidratación para una piel visiblemente más tersa.",
@@ -372,7 +363,7 @@ const stock = [
         categoria: "skincare"
     },
     {
-        Id: 37,
+        id: 37,
         marca: "Suqqu",
         nombre: "Cream Foundation",
         descripcion: "Una mezcla de extracto de nim y ácido glicirretico, que se encuentra en los sueros nutritivos para el cuidado de la piel de SUQQU. Cuatro extractos diferentes producidos en Japón.",
@@ -381,10 +372,8 @@ const stock = [
         img: "https://i.ibb.co/5sz8MGG/foundation.jpg",
         categoria: "makeup"
     },
- 
-    ,
     {
-        Id: 38,
+        id: 38,
         marca: "Milk",
         nombre: "Florence",
         descripcion: "Una máscara alargadora para pestañas que lucirán *casi* demasiado exuberantes para ser reales. Está hecho con ingredientes de origen vegetal como cera de arándano y rosa, además de un cepillo todo en uno para un volumen edificable que levanta y alarga",
@@ -394,7 +383,7 @@ const stock = [
         categoria: "makeup"
     },
     {
-        Id: 39,
+        id: 39,
         marca: "Dior",
         nombre: "Blue Water",
         descripcion: "Una laca de uñas de alta costura con efecto gel. Dior Vernis couture color, gel-shine, laca de uñas de larga duración.",
@@ -404,7 +393,7 @@ const stock = [
         categoria: "esmalte"
     },
     {
-        Id: 40,
+        id: 40,
         marca: "Chanel",
         nombre: "Coco Mademoiselle",
         descripcion: "Coco Mademoiselle de Chanel es una fragancia de la familia olfativa Ámbar Floral para Mujeres. Coco Mademoiselle se lanzó en 2001. La nariz detrás de esta fragancia es Jacques Polge. Las Notas de Salida son naranja, mandarina, bergamota y flor de azahar del naranjo; las Notas de Corazón son rosa turca, jazmín, mimosa y ylang-ylang; las Notas de Fondo son pachulí, almizcle blanco, vainilla, vetiver, haba tonka y opopónaco",
@@ -414,7 +403,7 @@ const stock = [
         categoria: "fragance"
     },
     {
-        Id: 41,
+        id: 41,
         marca: "Milk",
         nombre: "Florence",
         descripcion: "Este innovador iluminador en gel rebotante se desliza para brindar un destello de brillo cremoso y combinable.. La fórmula altamente pigmentada se puede construir para un brillo intenso o se puede dejar natural para una apariencia fácil y brillante.",
@@ -424,7 +413,7 @@ const stock = [
         categoria: "makeup"
     },
     {
-        Id: 42,
+        id: 42,
         marca: "Chanel",
         nombre: "Sundays",
         descripcion: "Larga duración: nuestra fórmula está especialmente desarrollada para durar con el tiempo, por lo que puedes sentirte y verte mejor en cualquier lugar.",
@@ -434,7 +423,7 @@ const stock = [
         categoria: "esmalte"
     },
     {
-        Id: 43,
+        id: 43,
         marca: "Loreal Paris",
         nombre: "Air Volume",
         descripcion: "Máscara de pestañas air mega volume wsh black 01 - MÁSCARA DE PESTAÑAS AIR MEGA VOLUME",
@@ -444,7 +433,7 @@ const stock = [
         categoria: "makeup"
     },
     {
-        Id: 44,
+        id: 44,
         marca: "Maybellin",
         nombre: "Lash sensational",
         descripcion: "LASH SENSATIONAL SKY HIGH WTP VERY BLACK",
@@ -454,17 +443,17 @@ const stock = [
         categoria: "makeup"
     },
     {
-        Id: 45,
+        id: 45,
         marca: "Colourpop",
         nombre: "Lux",
-        descripción: "COLOURPOP - LUX LIQUID LIPSTICK DÚO- POWDER ROOM. TONOS: CASUAL DRESS- CAN U EVEN",
+        descripción: "COLOURPOP - LUX LIQUid LIPSTICK DÚO- POWDER ROOM. TONOS: CASUAL DRESS- CAN U EVEN",
         precio: 14500,
         stock: 7,
         img: "https://i.ibb.co/BgcWFwL/labiallux.jpg",
         categoria: "makeup"
     },
     {
-        Id: 46,
+        id: 46,
         marca: "Dior",
         nombre: "Labial",
         descripcion: "Rouge Dior tiene ahora un nuevo armario de acabados de alta costura. Traspasando los límites del acabado mate, el nuevo Rouge Dior combina la pasión por la alta costura, el color y los tejidos con la innovación cosmética.",
@@ -474,7 +463,7 @@ const stock = [
         categoria: "makeup"
     },
     {
-        Id: 47,
+        id: 47,
         marca: "Lancome",
         nombre: "Labial",
         descripcion: "La fórmula icónica ahora está enriquecida con un 30 % de bálsamo de rosas hidratante, una extracción de tres rosas cosechadas a mano, recién recolectadas a mano una por una, y mezcladas con ácido hialurónico.",
@@ -484,7 +473,7 @@ const stock = [
         categoria: "makeup"
     },
     {
-        Id: 48,
+        id: 48,
         marca: "Kylie Skin",
         nombre: "LipBalm",
         descripcion: "Es una fórmula no pegajosa que hidrata, reconforta y deja los labios con un aspecto suave y con volumen natural. Su textura rica y acondicionadora combina el brillo de un brillo de labios con los efectos de sellado de humedad de un bálsamo mientras deja un brillo sutil.",
@@ -494,7 +483,7 @@ const stock = [
         categoria: "skincare"
     },
     {
-        Id: 49,
+        id: 49,
         marca: "Kylie Skin",
         nombre: "Foaming",
         descripcion: "Foaming Face Wash limpia la piel mientras ayuda a eliminar la suciedad, el exceso de grasa y el maquillaje para una tez fresca y brillante. No despoja a la piel de su humedad natural y la deja muy limpia e hidratada.",
@@ -504,7 +493,7 @@ const stock = [
         categoria: "skincare"
     },
     {
-        Id: 50,
+        id: 50,
         marca: "Kylie Skin",
         nombre: "Cream",
         descripcion: "Cream es un humectante liviano que trabaja para aclarar imperfecciones, hidratar y refrescar la piel para lograr un acabado suave y flexible. Repleta de ingredientes que aman la piel, esta crema ligera y transpirable ayuda a mejorar la elasticidad, el tono y la textura de la piel. La fórmula a base de agua también proporciona un efecto de enfriamiento instantáneo que lo convierte en la llamada de atención perfecta para la piel",
@@ -514,7 +503,7 @@ const stock = [
         categoria: "skincare"
     },
     {
-        Id: 51,
+        id: 51,
         marca: "Rodan+Fields",
         nombre: "Redefine",
         descripcion: "Rodan and Fields es una línea de cuidado de la piel que ofrece productos para el control y el envejecimiento contra manchas, entre otros problemas.",
@@ -532,7 +521,7 @@ const stock = [
         stock: 1,
         img: "https://i.ibb.co/SykNfk3/chance.jpg",
         categoria: "fragance"
- 
+
     },
     {
         id: 54,
@@ -543,7 +532,7 @@ const stock = [
         stock: 23,
         img: "https://i.ibb.co/kKbXTC6/chloe.jpg",
         categoria: "fragance"
- 
+
     },
     {
         id: 55,
@@ -554,7 +543,7 @@ const stock = [
         stock: 20,
         img: "https://i.ibb.co/VvX4QX5/elie.jpg",
         categoria: "fragance"
- 
+
     },
     {
         id: 56,
@@ -565,7 +554,7 @@ const stock = [
         stock: 0,
         img: "https://i.ibb.co/XZ7vjGj/fleurmonoi.jpg",
         categoria: "fragance"
- 
+
     },
     {
         id: 57,
@@ -576,7 +565,7 @@ const stock = [
         stock: 10,
         img: "https://i.ibb.co/sC38P6X/goutal.jpg",
         categoria: "fragance"
- 
+
     },
     {
         id: 58,
@@ -587,9 +576,21 @@ const stock = [
         stock: 18,
         img: "https://i.ibb.co/VBvFvsX/ysl.jpg",
         categoria: "fragance"
- 
-    }
+
+    },
+    {
+        id: 59,
+        marca: "Dior",
+        nombre: "Capture Totale",
+        descripcion: "La mejor crema* antiedad global nacida de la investigación de las células madre y de la especialización floral de Dior.",
+        precio: 25000,
+        stock: 30,
+        img: "https://i.ibb.co/6t3vZ5x/diorjuventud.jpg",
+        categoria: "skincare"
+    },
+
 ]
 
 export default stock
+
 
