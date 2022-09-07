@@ -27,8 +27,8 @@ const pages = [
         link: "/productos/skincare"
     },
     {
-        categoria: 'Haircare',
-        link: '/productos/haircare'
+        categoria: 'Fragance',
+        link: '/productos/fragance'
     },
     {
         categoria: 'Makeup',
