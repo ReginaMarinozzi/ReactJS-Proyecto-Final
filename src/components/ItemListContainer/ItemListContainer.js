@@ -28,13 +28,13 @@ const ItemListContainer = () => {
             .finally(() => {
                 setLoading(false)
             })
-            }, [categoryId] )
+    }, [categoryId])
 
 
 
     return (
-        <Container sx={{ marginTop: 10}}>
-            {loading ?  <h2>Loading...</h2> :  <ItemList productos={productos}  />}
+        <Container sx={{ marginTop: 10 }}>
+            {loading ? <h2>Loading...</h2> : <ItemList productos={productos} />}
         </Container>
 
     )

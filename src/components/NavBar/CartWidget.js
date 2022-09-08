@@ -1,7 +1,7 @@
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const ShoppingCart = () => {
-    return(
+    return (
         <ShoppingCartIcon sx={{ display: { xs: 'flex', md: 'flex' }, mx: 1 }} />
     );
 }
