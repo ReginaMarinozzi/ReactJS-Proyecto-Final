@@ -513,7 +513,7 @@ const stock = [
         categoria: "skincare"
     },
     {
-        id: 53,
+        id: 52,
         nombre: "Chance",
         marca: "Chanel",
         descripcion: "CHANCE EAU TENDRE, EAU DE TOILETTE VAPORIZADOR",
@@ -524,7 +524,7 @@ const stock = [
 
     },
     {
-        id: 54,
+        id: 53,
         nombre: "Chloé",
         marca: "Chloé",
         descripcion: "CHLOE ROSE TANGERINE EDT",
@@ -535,7 +535,7 @@ const stock = [
 
     },
     {
-        id: 55,
+        id: 54,
         nombre: "Le Parfum",
         marca: "Elie Saab",
         descripcion: "EAU DE PARFUM FEMME",
@@ -546,7 +546,7 @@ const stock = [
 
     },
     {
-        id: 56,
+        id: 55,
         nombre: "Fleur Monoi",
         marca: "Urban Outfitters",
         descripcion: "EAU DE PARFUM FEMME",
@@ -557,7 +557,7 @@ const stock = [
 
     },
     {
-        id: 57,
+        id: 56,
         nombre: "Songes",
         marca: "Annick Goutal",
         descripcion: "EAU DE PARFUM FEMME",
@@ -568,7 +568,7 @@ const stock = [
 
     },
     {
-        id: 58,
+        id: 57,
         nombre: "YSL Libre Intense",
         marca: "YSL",
         descripcion: "EAU DE PARFUM FEMME",

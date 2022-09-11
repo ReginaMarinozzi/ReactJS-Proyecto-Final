@@ -1,35 +1,36 @@
-import { useState } from "react";
 import * as React from 'react';
-import { Container } from "@mui/system";
 import Button from '@mui/material/Button';
-import ButtonGroup from '@mui/material/ButtonGroup';
+import Typography from '@mui/material/Typography';
+import { Box } from '@mui/material';
 
-const ItemCount = ({ stock }) => {
-  const [counter, setCounter] = useState(0);
+
+const ItemCount = ({ max, counter, setCantidad, handleAgregar }) => { 
+   
+
 
   const handleSumar = () => {
-    if (counter < stock) {
-      setCounter(counter + 1);
+    if (counter < max) {
+      setCantidad(counter + 1);
     }
 
   };
 
   const handleRestar = () => {
     if (counter > 0) {
-      setCounter(counter - 1);
+      setCantidad(counter - 1);
     }
   };
 
   return (
 
-    <Container sx={{ padding: 1, display: 'flex', justifyContent: 'center', flexDirection: 'column'}}  >
-      <ButtonGroup variant="outlined" aria-label="outlined button group" sx={{ padding: 1, display: 'flex', justifyContent: 'center' }}>
-      <Button variant="contained" onClick={handleRestar}>-</Button>
-      <Button>{counter}</Button>
-      <Button variant="contained" onClick={handleSumar}>+</Button>
-      </ButtonGroup>
-      <Button variant="contained" >Agregar al carrito</Button>
-    </Container>
+    <Box sx={{ padding: 1, display: 'flex', justifyContent: 'center', flexDirection: 'column'}}  >
+      <Box sx={{ padding: 1, display: 'flex', justifyContent: 'center' }}>
+      <Button variant="contained"  sx={{ padding: `5x`}} onClick={handleRestar}>-</Button>
+      <Typography>{counter}</Typography>
+      <Button variant="contained"  sx={{ padding: `5px`}}  onClick={handleSumar}>+</Button>
+      </Box>
+      <Button variant="contained" onClick={handleAgregar}>Agregar al carrito</Button>
+    </Box>
 
   );
 };
