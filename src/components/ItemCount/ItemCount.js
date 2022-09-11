@@ -27,9 +27,9 @@ const ItemCount = ({ max, counter, setCantidad, handleAgregar }) => {
       <Box sx={{ padding: 1, display: 'flex', justifyContent: 'center' }}>
       <Button variant="contained"  sx={{ padding: `5x`}} onClick={handleRestar}>-</Button>
       <Typography>{counter}</Typography>
-      <Button variant="contained"  sx={{ padding: `5px`}}  onClick={handleSumar}>+</Button>
+      <Button variant="contained"  sx={{ padding: `5px`}} onClick={handleSumar}>+</Button>
       </Box>
-      <Button variant="contained" onClick={handleAgregar}>Agregar al carrito</Button>
+      <Button variant="contained" size='large' onClick={handleAgregar}>Agregar al carrito</Button>
     </Box>
 
   );

@@ -36,7 +36,7 @@ const stock = [
         id: 4,
         marca: "DEWYTREE",
         nombre: "The Clean Lab Sea Salt",
-        descripcion: "Una sola dosis de esta loción refrescante se transforma en una espuma aérea y untuosa. Altamente concentrada en extracto de hojas de Té blanco de origen natural, perfecciona el desmaquillado, limpia y purifica la piel en profundidad mientras deja sobre ella una sensación refrescante. La piel queda libre de impurezas al instante, perfectamente limpia y aclarada. Tonificada y más fresca, la piel está llena de vida, bella de forma natural",
+        descripcion: "Una sola dosis de esta loción refrescante se transforma en una espuma aérea y untuosa. Altamente concentrada en extracto de hojas de Té blanco de origen natural, perfecciona el desmaquillado, limpia y purifica la piel en profundidad mientras deja sobre ella una sensación refrescante. La piel queda libre de impurezas al instante, perfectamente limpia y aclarada. Tonificada y más fresca, la piel está llena de vida, bella de forma natural.",
         precio: 2899,
         stock: 60,
         img: "https://i.ibb.co/9Ty7WG5/dewytree.jpg",

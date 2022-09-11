@@ -3,7 +3,9 @@ import { Box } from '@mui/system';
 import { useState } from "react";
 import { useCartContext } from '../../context/CartContext';
 import { Link } from 'react-router-dom';
-import { Button } from '@mui/material';
+import { Button, CardMedia, Card, CardContent, CardActions } from '@mui/material';
+import Typography from '@mui/material/Typography';
+
 
 const ItemDetail = ({ item }) => {
 
@@ -16,6 +18,7 @@ const ItemDetail = ({ item }) => {
       id: item.id,
       nombre: item.nombre,
       precio: item.precio,
+      img: item.img,
       cantidad
     }
 
@@ -25,22 +28,33 @@ const ItemDetail = ({ item }) => {
 
   return (
 
-    <Box maxWidth='md' sx={{ marginTop: 10, padding: 10, display: 'flex', flexFlow: 'column', justifyContent: 'center' }} >
-      <img src={item.img} alt={item.descripcion} />
-      <h3>{item.nombre} </h3>
-      <span>{item.descripcion} </span>
-      <span>Precio $ {item.precio}</span>
+    <Card maxWidth='lg' sx={{ marginTop: 12, marginBottom: 15 , padding: 10, display: 'flex', justifyContent: 'center' }} >
+
+      <CardMedia component="img" image={item.img} alt={item.descripcion} sx={{ borderRadius: `10px`}}/>
+
+      <Box sx={{ marginTop: 3, padding: 5,display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column'}}>
+
+        <CardContent align="justify">
+          <Typography align="center" variant="h4">{item.nombre}</Typography>
+          <Typography variant="body1" align="justify">{item.descripcion}</Typography>
+          <Typography variant="h5"  align="center" sx={{ padding: 2 }}>Precio $ {item.precio}</Typography>
+        </CardContent>
 
 
-      {isInCart(item.id)
-        ? <Button variant="contained" component={Link} to='/cart'>Terminar mi compra</Button> 
-        : <ItemCount
-          max={item.stock}
-          counter={cantidad}
-          setCantidad={setCantidad}
-          handleAgregar={handleAgregar} />
-      }
-    </Box>
+        <CardActions>
+          {isInCart(item.id)
+            ? <Button variant="contained" size='large' color='success' component={Link} to='/cart'>Terminar mi compra</Button>
+            : <ItemCount
+              max={item.stock}
+              counter={cantidad}
+              setCantidad={setCantidad}
+              handleAgregar={handleAgregar} />
+          }
+        </CardActions>
+
+      </Box>
+
+    </Card>
   )
 }
 
