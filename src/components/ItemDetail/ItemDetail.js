@@ -28,7 +28,7 @@ const ItemDetail = ({ item }) => {
 
   return (
 
-    <Card maxWidth='lg' sx={{ marginTop: 12, marginBottom: 15 , padding: 10, display: 'flex', justifyContent: 'center' }} >
+    <Card sx={{ marginTop: 12, marginBottom: 15 , padding: 10, display: 'flex', justifyContent: 'center' }} >
 
       <CardMedia component="img" image={item.img} alt={item.descripcion} sx={{ borderRadius: `10px`}}/>
 

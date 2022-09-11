@@ -19,8 +19,8 @@ const Cart = () => {
             <Divider />
 
             {cart.map((item) => (
-                <>
-                    <Container key={item.id} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <Container key={item.id} >
+                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                         <Box sx={{ width: "10%", padding: 2 }} component='img' src={item.img} alt={item.name} />
                         <Typography sx={{ padding: 2 }} variant="h5">{item.nombre} </Typography>
                         <Typography sx={{ padding: 2 }} variant="h6">Precio $ {item.precio} </Typography>
@@ -28,9 +28,9 @@ const Cart = () => {
                         <Button sx={{ margin: 1 }} variant="contained" size='small' color='error' onClick={() => removeItem(item.id)}>
                             <DeleteIcon />
                         </Button>
-                    </Container>
+                    </Box>
                     <Divider />
-                </>
+                </Container>
             ))}
 
             <Divider />
