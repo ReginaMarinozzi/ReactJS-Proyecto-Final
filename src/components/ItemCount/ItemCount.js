@@ -16,7 +16,7 @@ const ItemCount = ({ max, counter, setCantidad, handleAgregar }) => {
   };
 
   const handleRestar = () => {
-    if (counter > 0) {
+    if (counter > 1) {
       setCantidad(counter - 1);
     }
   };

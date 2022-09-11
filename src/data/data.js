@@ -8,7 +8,7 @@ const stock = [
         nombre: "Vital",
         descripcion: "Después de 7 días, la piel se nota radiante y joven. Después de utilizar un frasco, la piel se recupera más rápidamente y todos los signos clave de la juventud mejoran visiblemente.",
         precio: 5499,
-        stock: 0,
+        stock: 5,
         img: "https://i.ibb.co/fkL6cJb/accoje.jpg",
         categoria: "skincare"
     },
@@ -551,7 +551,7 @@ const stock = [
         marca: "Urban Outfitters",
         descripcion: "EAU DE PARFUM FEMME",
         precio: 20500,
-        stock: 0,
+        stock: 9,
         img: "https://i.ibb.co/XZ7vjGj/fleurmonoi.jpg",
         categoria: "fragance"
 
