@@ -8,7 +8,7 @@ const stock = [
         nombre: "Vital",
         descripcion: "Después de 7 días, la piel se nota radiante y joven. Después de utilizar un frasco, la piel se recupera más rápidamente y todos los signos clave de la juventud mejoran visiblemente.",
         precio: 5499,
-        stock: 5,
+        stock: 0,
         img: "https://i.ibb.co/fkL6cJb/accoje.jpg",
         categoria: "skincare"
     },
@@ -170,7 +170,7 @@ const stock = [
         precio: 13500,
         stock: 50,
         img: "https://i.ibb.co/MsD04j7/dior.jpg",
-        categoría: "makeup"
+        categoria: "makeup"
     },
     {
         id: 18,
