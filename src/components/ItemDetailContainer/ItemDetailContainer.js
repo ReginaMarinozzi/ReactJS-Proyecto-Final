@@ -1,38 +1,42 @@
 import ItemDetail from '../ItemDetail/ItemDetail';
 import React from 'react';
-import { useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import getData from '../../helpers/getData';
 import { Container } from '@mui/system';
 import Loader from '../Loader/Loader';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../../firebase/config';
 
 const ItemDetailContainer = () => {
 
     const [item, setItem] = useState(null)
+
     const [loading, setLoading] = useState(true)
-    const {itemId} = useParams()
+
+    const { itemId } = useParams()
 
     useEffect(() => {
-
         setLoading(true)
 
-        getData()
-            .then((res) => {
-                setItem( res.find((product) => product.id === Number(itemId)) )
+        const docRef = doc(db, 'productos', itemId)
+
+        getDoc(docRef)
+            .then((doc) => {
+                setItem({ id: doc.id, ...doc.data() })
             })
-            .catch((err) => {  console.log(err)})
             .finally(() => {
                 setLoading(false)
             })
+
     }, [itemId])
 
-  return (
-    <Container sx={{ marginTop: 10}}>
-        {loading ?  <Loader/> : <ItemDetail item={item} />}
-    </Container>
-        
+    return (
+        <Container sx={{ marginTop: 10 }}>
+            {loading ? <Loader /> : <ItemDetail item={item} />}
+        </Container>
 
-  )
+
+    )
 }
 
 export default ItemDetailContainer
