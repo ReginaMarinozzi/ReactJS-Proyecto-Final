@@ -1,19 +1,37 @@
 import ItemCount from '../ItemCount/ItemCount';
 import { Box } from '@mui/system';
-import { useState } from "react";
 import { useCartContext } from '../../context/CartContext';
 import { Link } from 'react-router-dom';
 import { Button, CardMedia, Card, CardContent, CardActions } from '@mui/material';
 import Typography from '@mui/material/Typography';
+import { useState } from 'react';
+import OutOfStock from '../OutOfStock/OutOfStock'
 
-const ItemDetail = ({ item, handleAgregar }) => {
+const ItemDetail = ({ item }) => {
 
   const { addToCart, isInCart } = useCartContext()
 
   const [cantidad, setCantidad] = useState(0)
 
 
-  // if (stock === 0) { return ( ItemCount disble)}
+  const handleAgregar = () => {
+    const itemToCart = {
+      id: item.id,
+      nombre: item.nombre,
+      precio: item.precio,
+      img: item.img,
+      cantidad
+    }
+
+    addToCart(itemToCart)
+  }
+
+
+  if (item.stock === 0) {
+    return (
+      <OutOfStock item={item} />
+    )
+  }
 
 
   return (
@@ -37,9 +55,8 @@ const ItemDetail = ({ item, handleAgregar }) => {
               max={item.stock}
               counter={cantidad}
               setCantidad={setCantidad}
-              handleAgregar={handleAgregar} 
-              addToCart={addToCart}
-              item={item}
+              handleAgregar={handleAgregar}
+
             />
           }
         </CardActions>

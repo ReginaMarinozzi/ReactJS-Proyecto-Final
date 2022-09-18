@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 const EmptyCart = () => {
     return (
         <Box>
-            <Typography sx={{ marginTop: 15, marginBottom: 3 }} variant="h2" component='h3' align='center'>Tu carrito está vacio</Typography>
+            <Typography sx={{ marginTop: 15, marginBottom: 3 }} variant="h2" component='h3' align='center'>Tu carrito está vacío</Typography>
             <Divider sx={{ marginRight: 10, marginLeft: 10 }}/>
             <Box sx={{display: 'flex', justifyContent: 'center', margin: 3 }} > <Button variant='contained' component={Link} to='/'>Ir a comprar</Button>
             </Box>

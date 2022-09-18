@@ -29,7 +29,6 @@ const Item = ({ producto }) => {
                         {producto.stock > 0
                             ? <Typography variant="h6" component='p'>Stock disponible: {producto.stock} </Typography>
                             : <Typography variant="h6" component='p' color="text.secondary"> No hay stock</Typography>}
-
                     </Box>
                 </CardContent>
                 <CardActions sx={{ justifyContent: 'center' }}>
