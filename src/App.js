@@ -5,9 +5,9 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import Home from './components/Home/Home';
 import { CartProvider } from './context/CartContext';
 import Cart from './components/Cart/Cart';
+import Checkout from './components/Checkout/Checkout';
 
 function App() {
-
 
   return (
     <CartProvider>
@@ -21,6 +21,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/item/:itemId' element={<ItemDetailContainer />} />
           <Route path='/cart' element={<Cart />} />
+          <Route path='/checkout' element={<Checkout/>}/>
           <Route path='/productos/:categoryId' element={<ItemListContainer />} />
           <Route path='*' element={<Navigate to="/" />} />
 
