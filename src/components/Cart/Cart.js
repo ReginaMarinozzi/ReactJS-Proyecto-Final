@@ -1,4 +1,4 @@
-import { Button, Divider, Typography, Box } from '@mui/material'
+import { Button, Divider, Typography, Box, ButtonGroup } from '@mui/material'
 import { Container } from '@mui/system'
 import { useCartContext } from '../../context/CartContext'
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 const Cart = () => {
 
-    const { cart, cartTotal, emptyCart, removeItem } = useCartContext()
+    const { cart, cartTotal, emptyCart, removeItem, decreaseQuantityInCart, increaseQuantityInCart } = useCartContext()
 
     if (cart.length === 0) {
         return (
@@ -34,6 +34,11 @@ const Cart = () => {
                         <Button sx={{ margin: 1 }} variant="contained" size='small' color='error' onClick={() => removeItem(item.id)}>
                             <DeleteIcon />
                         </Button>
+                        <ButtonGroup variant="contained" aria-label="outlined primary button group" sx={{ my: 2 }} >
+                            <Button onClick={ () => decreaseQuantityInCart(item)} disabled={item.cantidad === 1} sx={{ px: 3 }}>-</Button>
+                            <Button variant="outlined" sx={{ px: 3 }}>{item.cantidad}</Button>
+                            <Button onClick={ () => increaseQuantityInCart (item)} sx={{ px: 3 }}>+</Button>
+                        </ButtonGroup>
                     </Box>
                     <Divider />
                 </Container>

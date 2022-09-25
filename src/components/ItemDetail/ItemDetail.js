@@ -20,6 +20,7 @@ const ItemDetail = ({ item }) => {
       nombre: item.nombre,
       precio: item.precio,
       img: item.img,
+      stock: item.stock,
       cantidad
     }
 

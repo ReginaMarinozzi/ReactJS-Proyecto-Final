@@ -24,6 +24,34 @@ export const CartProvider = ({ children }) => {
         return cart.reduce((acc, item) => acc + item.cantidad * item.precio, 0)
     }
 
+    const increaseQuantityInCart = (item) => {
+        const inCart = cart.find((productInCart) => productInCart.id === item.id);
+        if (item.stock > inCart.cantidad) {
+            if (inCart) {
+                setCart(
+                    cart.map((productInCart) => {
+                        if (productInCart.id === item.id) {
+                            return { ...inCart, cantidad: inCart.cantidad + 1 };
+                        } else return productInCart;
+                    })
+                );
+            }
+        }
+    };
+
+    const decreaseQuantityInCart = (item) => {
+        const inCart = cart.find((productInCart) => productInCart.id === item.id);
+        if (inCart.cantidad > 1) {
+            setCart(
+                cart.map((productInCart) => {
+                    if (productInCart.id === item.id) {
+                        return { ...inCart, cantidad: inCart.cantidad - 1 };
+                    } else return productInCart;
+                })
+            );
+        }
+    };
+
     const emptyCart = () => {
         setCart([])
     }
@@ -49,7 +77,9 @@ export const CartProvider = ({ children }) => {
             cartTotal,
             emptyCart,
             removeItem,
-            terminarCompra
+            terminarCompra,
+            increaseQuantityInCart,
+            decreaseQuantityInCart
         }}>
             {children}
         </CartContext.Provider>)

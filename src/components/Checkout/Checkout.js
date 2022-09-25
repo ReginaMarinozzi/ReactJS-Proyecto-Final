@@ -8,18 +8,19 @@ import { Navigate } from "react-router-dom"
 import { useCartContext } from "../../context/CartContext"
 import { addDoc, collection, getDocs, writeBatch, query, where, documentId } from 'firebase/firestore'
 import { db } from "../../firebase/config"
-import SuccessOrder from "../SuccessOrder/SuccessOrder"
+import CompraExitosa from "../CompraExitosa/CompraExitosa"
 import Swal from 'sweetalert2'
+
 
 const Checkout = () => {
 
-    const { cart, cartTotal, finishOrder } = useCartContext()
+    const { cart, cartTotal, terminarCompra } = useCartContext()
 
     const [orderId, setOrderId] = useState(null)
 
     if (orderId) {
         return (
-            <SuccessOrder orderId={orderId} />
+            <CompraExitosa orderId={orderId} />
         )
     }
 
@@ -79,7 +80,7 @@ const Checkout = () => {
                             addDoc(ordenesRef, orden)
                                 .then((doc) => {
                                     setOrderId(doc.id)
-                                    finishOrder()
+                                    terminarCompra()
                                 })
                         })
                 } else {
@@ -135,10 +136,6 @@ const Checkout = () => {
                                 label="Telefono"
 
                             />
-
-
-
-
 
                             <Button
                                 variant="contained"
