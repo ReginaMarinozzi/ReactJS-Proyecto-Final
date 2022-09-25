@@ -1,67 +1,25 @@
+import { Box, Button, Typography, Container } from '@mui/material';
+import { Formik, Form, Field } from 'formik';
+import { TextField } from 'formik-mui';
+import * as React from 'react';
+import * as Yup from 'yup';
 import { useState } from "react"
 import { Navigate } from "react-router-dom"
 import { useCartContext } from "../../context/CartContext"
-import { addDoc, collection } from 'firebase/firestore'
+import { addDoc, collection, getDocs, writeBatch, query, where, documentId } from 'firebase/firestore'
 import { db } from "../../firebase/config"
-import { Button, Container, Typography, Box, TextField } from '@mui/material'
-import CompraExitosa from "../CompraExitosa/CompraExitosa"
+import SuccessOrder from "../SuccessOrder/SuccessOrder"
+import Swal from 'sweetalert2'
 
 const Checkout = () => {
 
-    const { cart, cartTotal, terminarCompra } = useCartContext()
+    const { cart, cartTotal, finishOrder } = useCartContext()
 
     const [orderId, setOrderId] = useState(null)
 
-    const [values, setValues] = useState({
-        nombre: '',
-        email: '',
-        direccion: '',
-    })
-
-    const handleTextFieldChange = (e) => {
-        setValues({
-            ...values,
-            [e.target.name]: e.target.value
-        })
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-
-        const orden = {
-            comprador: values,
-            items: cart,
-            total: cartTotal()
-        }
-
-
-        if (values.nombre.length < 2) {
-            alert("Nombre incorrecto")
-            return
-        }
-        if (values.direccion.length < 2) {
-            alert("Dirección incorrecta")
-            return
-        }
-        if (values.email.length < 2) {
-            alert("Email incorrecto")
-            return
-        }
-
-
-        const ordenesRef = collection(db, 'ordenes')
-
-
-        addDoc(ordenesRef, orden)
-            .then((doc) => {
-                setOrderId(doc.id)
-                terminarCompra()
-            })
-    }
-
     if (orderId) {
         return (
-            <CompraExitosa orderId={orderId}/>
+            <SuccessOrder orderId={orderId} />
         )
     }
 
@@ -69,44 +27,136 @@ const Checkout = () => {
         return <Navigate to="/" />
     }
 
+    const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-])|(\\([0-9]{2,3}\\)[ \\-])|([0-9]{2,4})[ \\-])?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
+
     return (
-        <Container sx={{ marginTop: 15 }}>
-            <Typography sx={{ padding: 5 }} variant="h4" component='h5'>Checkout</Typography>
+        <Formik
+            initialValues={{ nombre: '', direccion: '', email: '', telefono: '' }}
+            validationSchema={Yup.object({
+                nombre: Yup.string()
+                    .required('Requerido'),
+                direccion: Yup.string()
+                    .required('Requerido'),
+                email: Yup.string()
+                    .email('eMail incorrecto')
+                    .required('Requerido'),
+                telefono: Yup.string()
+                    .matches(phoneRegExp, 'Telefono incorrecto')
+                    .required('Requerido'),
+            })}
+            onSubmit={async (values) => {
 
-            <Box sx={{ display: 'flex', flexFlow: 'column wrap', margin: 2 }} component="form" noValidate
-                autoComplete="off" onSubmit={handleSubmit}>
+                const orden = {
+                    comprador: values,
+                    items: cart,
+                    total: cartTotal()
+                }
 
-                <TextField sx={{ margin: 2 }}
-                    name="nombre"
-                    onChange={handleTextFieldChange}
-                    value={values.nombre}
-                    type={'text'}
-                    placeholder="Tu nombre y apellido"
-                />
+                const batch = writeBatch(db)
+                const ordenesRef = collection(db, 'ordenes')
+                const productosRef = collection(db, 'productos')
+                const q = query(productosRef, where(documentId(), 'in', cart.map(item => item.id)))
 
-                <TextField sx={{ margin: 2 }}
-                    name="email"
-                    onChange={handleTextFieldChange}
-                    value={values.email}
-                    type={'email'}
-                    placeholder="Email"
-                />
+                const productos = await getDocs(q)
 
-                <TextField sx={{ margin: 2 }}
-                    name="direccion"
-                    onChange={handleTextFieldChange}
-                    value={values.direccion}
-                    type={'text'}
-                    placeholder="Dirección"
-                />
+                const outOfStock = []
 
-                <Button sx={{ margin: 3 }} type="submit" variant="contained" size='small' color='warning'>Enviar</Button>
+                productos.docs.forEach(doc => {
+                    const itemInCart = cart.find(item => item.id === doc.id)
 
-            </Box>
+                    if (doc.data().stock >= itemInCart.cantidad) {
+                        batch.update(doc.ref, {
+                            stock: doc.data().stock - itemInCart.cantidad
+                        })
+                    } else {
+                        outOfStock.push(itemInCart)
+                    }
+                })
+
+                if (outOfStock.length === 0) {
+                    batch.commit()
+                        .then(() => {
+                            addDoc(ordenesRef, orden)
+                                .then((doc) => {
+                                    setOrderId(doc.id)
+                                    finishOrder()
+                                })
+                        })
+                } else {
+
+                    Swal.fire({
+                        title: "Hay un problema con tu compra:",
+                        text: (`Los siguientes items no están en stock:
+                         ${(outOfStock.map((item) => (item.nombre)))}`),
+                        icon: 'warning',
+                        showCancelButton: false,
+                        confirmButtonColor: '#3085d6',
+                        confirmButtonText: 'Aceptar'
+                    })
+                }
+
+            }}
+        >
+            {({ submitForm, isSubmitting }) => (
+
+                <Container sx={{ marginTop: 15 }}>
+                    <Typography sx={{ padding: 5 }} variant="h4" component='h5'>Checkout</Typography>
+
+                    <Box sx={{ display: 'flex', flexFlow: 'column wrap', margin: 2 }}>
+                        <Form >
+
+                            <Field
+                                component={TextField}
+                                type="email"
+                                name="email"
+                                label="eMail"
+
+                            />
+
+                            <Field
+                                component={TextField}
+                                name="nombre"
+                                type="nombre"
+                                label="Nombre y apellido"
+                            />
+
+                            <Field
+                                component={TextField}
+                                type="direccion"
+                                name="direccion"
+                                label="Direccion"
+
+                            />
+
+                            <Field
+                                component={TextField}
+                                type="telefono"
+                                name="telefono"
+                                label="Telefono"
+
+                            />
 
 
-        </Container>
-    )
+
+
+
+                            <Button
+                                variant="contained"
+                                color="warning"
+                                disabled={isSubmitting}
+                                onClick={submitForm}
+                                sx={{ margin: 3 }}
+                                size='small'
+                            >
+                                Enviar
+                            </Button>
+
+                        </Form>
+                    </Box>
+                </Container>
+            )}
+        </Formik>
+    );
 }
 
 export default Checkout
