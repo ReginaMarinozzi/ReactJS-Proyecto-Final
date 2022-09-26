@@ -6,6 +6,8 @@ import Home from './components/Home/Home';
 import { CartProvider } from './context/CartContext';
 import Cart from './components/Cart/Cart';
 import Checkout from './components/Checkout/Checkout';
+import MisOrdenesContainer from './components/MisOrdenesContainer/MisOrdenesContainer';
+import WishList from './components/WishList/WishList';
 
 function App() {
 
@@ -21,6 +23,8 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/item/:itemId' element={<ItemDetailContainer />} />
           <Route path='/cart' element={<Cart />} />
+          <Route path='/ordenes/:userId' element={<MisOrdenesContainer />} />
+          <Route path='/wishlist' element={<WishList />} />
           <Route path='/checkout' element={<Checkout/>}/>
           <Route path='/productos/:categoryId' element={<ItemListContainer />} />
           <Route path='*' element={<Navigate to="/" />} />
