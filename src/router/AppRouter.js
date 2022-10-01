@@ -11,8 +11,10 @@ const AppRouter = () => {
     return (
         <BrowserRouter>
         <ResponsiveAppBar/>
+       
             {
             user
+            
                 ? <PrivateRoutes/>
                 : <PublicRoutes/>
             }

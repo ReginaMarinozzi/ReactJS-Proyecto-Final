@@ -2,23 +2,25 @@ import React from 'react'
 import { collection, getDocs, query, where } from "firebase/firestore"
 import { db } from "../../firebase/config"
 import { useEffect, useState } from 'react';
-import { useParams } from "react-router-dom";
 import { Container } from '@mui/system';
 import Loader from '../Loader/Loader'
 import OrderList from '../OrderList/OrderList'
+import { useLoginContext } from "../../context/LoginContext"
 
 const OrdersContainer = () => {
     const [ordenes, setOrdenes] = useState([])
     const [loading, setLoading] = useState(true)
-    const { userId } = useParams()
+
+    const {user} = useLoginContext()
+
 
     useEffect(() => {
         setLoading(true)
         
         const ordenesRef = collection(db, 'ordenes')
 
-        const q = userId
-            ? query(ordenesRef, where('comprador.', '==', userId))
+        const q = user.uid
+            ? query(ordenesRef, where('iduser', '==', user.uid))
             : ordenesRef
 
         getDocs(q)
@@ -28,9 +30,10 @@ const OrdersContainer = () => {
                 
             })
             .finally(() => {
+                
                 setLoading(false)
             })
-    }, [userId])
+    }, [user.uid])
 
 
   return (
