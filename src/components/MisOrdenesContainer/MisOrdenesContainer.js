@@ -25,7 +25,6 @@ const MisOrdenesContainer = () => {
         getDocs(q)
             .then((resp) => {
                 const ordenesDB = resp.docs.map((doc) => doc.data())
-                console.log(ordenesDB)
                 setOrdenes(ordenesDB)
             })
             .finally(() => {
@@ -41,4 +40,3 @@ const MisOrdenesContainer = () => {
 }
 
 export default MisOrdenesContainer
-

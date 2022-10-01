@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { Card, CardContent, CardMedia, Box, Typography } from '@mui/material';
 
-const orden = ({ orden }) => {
+const Orden = ({ orden }) => {
     return (
         <Card>
-            <Box sx={{ marginTop: 3, padding: 5, display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
-                <CardContent sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexDirection: 'column' }}>                  
+            <Box sx={{ marginTop: 3, padding: 5, display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
+                <CardContent sx={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'column' }}>                  
                     <Typography variant="body1" component='p'>
                         Nombre:  {orden.comprador.nombre}
                     </Typography>
@@ -36,4 +36,4 @@ const orden = ({ orden }) => {
     )
 }
 
-export default orden
+export default Orden

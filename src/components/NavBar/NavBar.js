@@ -1,19 +1,16 @@
 import * as React from 'react';
-import{ AppBar, Box, Typography, Toolbar, IconButton, Menu, Container, Avatar, Button, Tooltip, MenuItem } from '@mui/material';
+import { AppBar, Box, Typography, Toolbar, IconButton, Menu, Container, Avatar, Button, Tooltip, MenuItem } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu'
 import AdbIcon from '@mui/icons-material/Adb';
 import ShoppingCart from './CartWidget.js';
 import { Link } from 'react-router-dom';
+import { useLoginContext } from '../../context/LoginContext'
 
 
 const settings = [
     {
-        nombre: 'Mi cuenta',
-        link: '/'
-    },
-    {
         nombre: 'Mis órdenes',
-        link: '/ordenes/regina.marinozzi@gmail.com'
+        link: '/ordenes'
     },
     {
         nombre: 'Mi wishlist',
@@ -38,6 +35,19 @@ const pages = [
 ];
 
 const ResponsiveAppBar = () => {
+
+    const { logout, user } = useLoginContext();
+
+    const handleLogout = async () => {
+        try {
+            await logout();
+        } catch (error) {
+            console.error(error.message);
+        }
+    };
+
+
+
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -148,6 +158,28 @@ const ResponsiveAppBar = () => {
                         ))}
                     </Box>
 
+
+                    <Box sx={{ flexGrow: 0 }}>
+
+                        {user ?
+                            <Button
+                                onClick={handleLogout}
+                                variant="contained"
+                                sx={{ marginLeft: 2 }}>
+                                Cerrar sesión
+                            </Button>
+                            :
+                            <Button
+                                component={Link}
+                                to="/login"
+                                variant="contained"
+                            >
+                                Acceder
+                            </Button>
+                        }
+
+                    </Box>
+
                     <ShoppingCart />
 
                     <Box sx={{ flexGrow: 0 }}>
@@ -184,6 +216,8 @@ const ResponsiveAppBar = () => {
                                 </MenuItem>
                             ))}
                         </Menu>
+
+
                     </Box>
                 </Toolbar>
             </Container>

@@ -1,40 +1,15 @@
-import ResponsiveAppBar from './components/NavBar/NavBar';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
-import Home from './components/Home/Home';
 import { CartProvider } from './context/CartContext';
-import Cart from './components/Cart/Cart';
-import Checkout from './components/Checkout/Checkout';
-import MisOrdenesContainer from './components/MisOrdenesContainer/MisOrdenesContainer';
-import WishList from './components/WishList/WishList';
+import { LoginProvider } from './context/LoginContext';
+import AppRouter from './router/AppRouter';
 
-function App() {
+const App = () => {
 
   return (
-    <CartProvider>
-
-      <BrowserRouter>
-
-        <ResponsiveAppBar /> 
-
-        <Routes>
-
-          <Route path='/' element={<Home />} />
-          <Route path='/item/:itemId' element={<ItemDetailContainer />} />
-          <Route path='/cart' element={<Cart />} />
-          <Route path='/ordenes/:userId' element={<MisOrdenesContainer />} />
-          <Route path='/wishlist' element={<WishList />} />
-          <Route path='/checkout' element={<Checkout/>}/>
-          <Route path='/productos/:categoryId' element={<ItemListContainer />} />
-          <Route path='*' element={<Navigate to="/" />} />
-
-        </Routes>
-
-      </BrowserRouter>
-
-    </CartProvider>
-
+    <LoginProvider>
+      <CartProvider>
+        <AppRouter />
+      </CartProvider>
+    </LoginProvider>
   );
 }
 
