@@ -22,7 +22,7 @@ const LoginScreen = () => {
   const handleGoogleSignin = async () => {
     try {
       await loginWithGoogle();
-      navigate("/");
+      navigate(-1);
     } catch (error) {
       setError(error.message)
     }
@@ -55,7 +55,7 @@ const LoginScreen = () => {
         setError("");
         try {
           await login(values.email, values.password)
-          navigate("/")
+          navigate(-1)
         } catch (e) {
           setSubmitting(false)
           setError(error.message);

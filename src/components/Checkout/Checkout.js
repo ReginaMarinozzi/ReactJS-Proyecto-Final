@@ -1,5 +1,6 @@
-import { Box, Button, Typography, Container } from '@mui/material';
+import { Box, Button, Typography, Grid } from '@mui/material';
 import { Formik, Form, Field } from 'formik';
+import { Container } from '@mui/system'
 import { TextField } from 'formik-mui';
 import * as React from 'react';
 import * as Yup from 'yup';
@@ -15,9 +16,8 @@ import { useLoginContext } from "../../context/LoginContext"
 const Checkout = () => {
 
     const { cart, cartTotal, terminarCompra } = useCartContext()
-    const {user} = useLoginContext()
 
-    console.log(user.uid)
+    const { user } = useLoginContext()
 
     const [orderId, setOrderId] = useState(null)
 
@@ -108,39 +108,45 @@ const Checkout = () => {
                     <Typography sx={{ padding: 5 }} variant="h4" component='h5'>Checkout</Typography>
 
                     <Box sx={{ display: 'flex', flexFlow: 'column wrap', margin: 2 }}>
+                    <Grid container padding={5} rowSpacing={2} columnSpacing={1} >
                         <Form >
-
-                            <Field
-                                component={TextField}
-                                type="email"
-                                name="email"
-                                label="eMail"
-
-                            />
-
+                        <Grid item md={12}>
+                            
                             <Field
                                 component={TextField}
                                 name="nombre"
                                 type="nombre"
-                                label="Nombre y apellido"
+                                label="Nombre"
                             />
-
+                            <Field
+                                component={TextField}
+                                name="apellido"
+                                type="apellido"
+                                label="Apellido"
+                            />
+                            </Grid>
+                            <Grid item md={12}>
                             <Field
                                 component={TextField}
                                 type="direccion"
                                 name="direccion"
                                 label="Direccion"
-
                             />
-
                             <Field
                                 component={TextField}
                                 type="telefono"
                                 name="telefono"
                                 label="Telefono"
-
                             />
-
+                            </Grid>
+                            <Grid item md={12}>
+                            <Field
+                                component={TextField}
+                                type="email"
+                                name="email"
+                                label="eMail"
+                            />
+                            </Grid>
                             <Button
                                 variant="contained"
                                 color="warning"
@@ -151,8 +157,9 @@ const Checkout = () => {
                             >
                                 Enviar
                             </Button>
-
+                          
                         </Form>
+                        </Grid>
                     </Box>
                 </Container>
             )}
