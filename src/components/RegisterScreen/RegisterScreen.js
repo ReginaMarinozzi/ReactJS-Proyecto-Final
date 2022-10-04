@@ -6,15 +6,16 @@ import { useNavigate, Link } from "react-router-dom"
 import { TextField } from 'formik-mui'
 import { Button, Typography, Box, Grid } from '@mui/material'
 import { Container } from '@mui/system'
-import { useState } from "react";
+import { useState } from "react"
+
 
 const RegisterScreen = () => {
 
-  const { signup } = useLoginContext();
+  const { signup } = useLoginContext()
 
-  const [error, setError] = useState("");
+  const [error, setError] = useState("")
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-])|(\\([0-9]{2,3}\\)[ \\-])|([0-9]{2,4})[ \\-])?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
 
@@ -41,34 +42,33 @@ const RegisterScreen = () => {
         //     "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
         //   )
       })}
-      onSubmit={async (values, { setSubmitting }) => {
-        setError("");
+      onSubmit={async (values) => {
+        setError("")
         try {
           await signup(values.email, values.password)
           navigate("/")
-        } catch (e) {
-          setSubmitting(false)
-          setError(error.message);
+        } catch (error) {
+          if (error.code === 'auth/email-already-in-use')
+          setError('El usuario ya existe')
         }
       }}
     >
       {({ submitForm, isSubmitting }) => (
         <Container sx={{ marginTop: 15 }}>
 
-          <Typography variant="h4" component='h5'>Register</Typography>
+          <Typography variant="h4" component='h5' sx={{ marginBottom: 5 }}>Register</Typography>
           <Box>
-            <Grid container padding={5} rowSpacing={2} columnSpacing={1} >
+            <Grid container spacing={3} >
               <Form >
                 <Grid item md={12}>
                   {error && <Typography variant="body1" component='p'>{error}</Typography>}
-                  <Field
+                  <Field sx={{ margin: 1 }}
                     component={TextField}
                     type="nombre"
                     name="nombre"
                     label="Nombre"
-                    autoComplete
                   />
-                  <Field
+                  <Field sx={{ margin: 1 }}
                     component={TextField}
                     type="apellido"
                     name="apellido"
@@ -76,13 +76,13 @@ const RegisterScreen = () => {
                   />
                 </Grid>
                 <Grid item md={12}>
-                  <Field
+                  <Field sx={{ margin: 1 }}
                     component={TextField}
                     type="direccion"
                     name="direccion"
                     label="Dirección"
                   />
-                  <Field
+                  <Field sx={{ margin: 1 }}
                     component={TextField}
                     type="telefono"
                     name="telefono"
@@ -91,20 +91,20 @@ const RegisterScreen = () => {
                   />
                 </Grid>
                 <Grid item md={12}>
-                  <Field
+                  <Field sx={{ margin: 1 }}
                     component={TextField}
                     type="email"
                     name="email"
                     label="eMail"
                   />
-                  <Field
+                  <Field sx={{ margin: 1 }}
                     component={TextField}
                     type="password"
                     name="password"
                     label="password"
                   />
                 </Grid>
-                <Grid item md={12}>
+                <Grid item md={12} sx={{ margin: 1 }} >
                   <Button
                     variant="contained"
                     color="primary"
@@ -113,7 +113,7 @@ const RegisterScreen = () => {
                   >
                     Crear Usuario
                   </Button>
-                  <Typography variant="body1" component={Link} to='/login'>Already have an Account?</Typography>
+                  <Typography sx={{ margin: 1 }} variant="body1" component={Link} to='/login'>Already have an Account?</Typography>
                 </Grid>
               </Form>
             </Grid>
