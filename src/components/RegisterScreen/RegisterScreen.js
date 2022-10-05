@@ -46,7 +46,7 @@ const RegisterScreen = () => {
         setError("")
         try {
           await signup(values.email, values.password)
-          navigate("/")
+          navigate(-1)
         } catch (error) {
           if (error.code === 'auth/email-already-in-use')
           setError('El usuario ya existe')

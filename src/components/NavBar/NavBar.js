@@ -74,7 +74,8 @@ const ResponsiveAppBar = () => {
 
     const handleLogout = async () => {
         try {
-            await logout();
+            await logout()
+            navigate("/")
         } catch (error) {
             console.error(error.message);
         }

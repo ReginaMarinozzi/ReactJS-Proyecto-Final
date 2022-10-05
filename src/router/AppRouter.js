@@ -12,8 +12,10 @@ import Wishlist from '../components/WishList/WishList'
 import Checkout from '../components/Checkout/Checkout'
 import SearchNavBar from '../components/NavBar/SearchNavBar'
 import Footer from '../components/Footer/Footer'
+import { useLoginContext } from "../context/LoginContext"
 
 const AppRouter = () => {
+    const { user} = useLoginContext()
 
     return (
         <BrowserRouter>
@@ -21,8 +23,8 @@ const AppRouter = () => {
             <ResponsiveAppBar />
 
             <Routes>
-                <Route path='/login' element={<LoginScreen />} />
-                <Route path='/register' element={<RegisterScreen />} />
+                <Route path='/login' element={user ? <Navigate to="/" /> : <LoginScreen />} />
+                <Route path='/register' element={user ? <Navigate to="/" /> : <RegisterScreen />} />
                 <Route path='/' element={<Home />} />
                 <Route path='/productos/:categoryId' element={<ItemListContainer />} />
                 <Route path='/item/:itemId' element={<ItemDetailContainer />} />

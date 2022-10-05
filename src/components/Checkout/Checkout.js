@@ -108,57 +108,59 @@ const Checkout = () => {
                     <Typography sx={{ padding: 5 }} variant="h4" component='h5'>Checkout</Typography>
 
                     <Box sx={{ display: 'flex', flexFlow: 'column wrap', margin: 2 }}>
-                    <Grid container padding={5} rowSpacing={2} columnSpacing={1} >
-                        <Form >
-                        <Grid item md={12}>
-                            
-                            <Field
-                                component={TextField}
-                                name="nombre"
-                                type="nombre"
-                                label="Nombre"
-                            />
-                            <Field
-                                component={TextField}
-                                name="apellido"
-                                type="apellido"
-                                label="Apellido"
-                            />
-                            </Grid>
-                            <Grid item md={12}>
-                            <Field
-                                component={TextField}
-                                type="direccion"
-                                name="direccion"
-                                label="Direccion"
-                            />
-                            <Field
-                                component={TextField}
-                                type="telefono"
-                                name="telefono"
-                                label="Telefono"
-                            />
-                            </Grid>
-                            <Grid item md={12}>
-                            <Field
-                                component={TextField}
-                                type="email"
-                                name="email"
-                                label="eMail"
-                            />
-                            </Grid>
-                            <Button
-                                variant="contained"
-                                color="warning"
-                                disabled={isSubmitting}
-                                onClick={submitForm}
-                                sx={{ margin: 3 }}
-                                size='small'
-                            >
-                                Enviar
-                            </Button>
-                          
-                        </Form>
+                        <Grid container padding={5} rowSpacing={2} columnSpacing={1} >
+                            <Form >
+                                <Grid item md={12}>
+
+                                    <Field
+                                        component={TextField}
+                                        name="nombre"
+                                        type="nombre"
+                                        label="Nombre"
+                                    />
+                                    <Field
+                                        component={TextField}
+                                        name="apellido"
+                                        type="apellido"
+                                        label="Apellido"
+                                    />
+                                </Grid>
+                                <Grid item md={12}>
+                                    <Field
+                                        component={TextField}
+                                        type="direccion"
+                                        name="direccion"
+                                        label="Direccion"
+                                    />
+                                    <Field
+                                        component={TextField}
+                                        type="telefono"
+                                        name="telefono"
+                                        label="Telefono"
+                                    />
+                                </Grid>
+                                <Grid item md={12}>
+                                    <Field
+                                        disabled={true}
+                                        component={TextField}
+                                        type="email"
+                                        name="email"
+                                        label="eMail"
+                                        value={user.email}
+                                    />
+                                </Grid>
+                                <Button
+                                    variant="contained"
+                                    color="warning"
+                                    disabled={isSubmitting}
+                                    onClick={submitForm}
+                                    sx={{ margin: 3 }}
+                                    size='small'
+                                >
+                                    Enviar
+                                </Button>
+
+                            </Form>
                         </Grid>
                     </Box>
                 </Container>

@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { useLoginContext } from '../../context/LoginContext'
 import { Button, Typography, Box, Grid, TextField } from '@mui/material'
+import { Container } from "@mui/system"
 
 const LoginScreen = () => {
   const [user, setUser] = useState({
@@ -17,7 +18,7 @@ const LoginScreen = () => {
     setError('');
     try {
       await login(user.email, user.password)
-      navigate('/')
+      navigate(-1)
     } catch (error) {
       if (error.code === 'auth/user-not-found') {
         setError('Correo invalido')
@@ -32,14 +33,14 @@ const LoginScreen = () => {
   };
 
   const handleChange = ({ target: { value, name } }) =>
-    setUser({ ...user, [name]: value });
+    setUser({ ...user, [name]: value })
 
   const handleGoogleSignin = async () => {
     try {
       await loginWithGoogle();
-      navigate("/");
+      navigate(-1)
     } catch (error) {
-      setError(error.message);
+      setError(error.message)
     }
   };
 
@@ -55,59 +56,61 @@ const LoginScreen = () => {
   };
 
   return (
-    <Box sx={{ marginTop: 15, display: 'flex', justifyContent: 'center'}}>
-
-      <Typography variant="h4" component='h5'>Login</Typography>
-
-      <Grid container my={4}>
-        <form
-          onSubmit={handleSubmit}
-        >
-          <Grid item md={12} sx={{padding: 2}}>
-            {error && <Typography variant="body1" component='p'>{error}</Typography>}
-            <TextField
-              type="email"
-              name="email"
-              id="email"
-              onChange={handleChange}
-              placeholder="eMail"
-            />
-          </Grid>
-          <Grid item md={12} sx={{padding: 2}}>
-            <TextField
-              type="password"
-              name="password"
-              id="password"
-              onChange={handleChange}
-              placeholder="*************"
-            />
-
-          </Grid>
-
-          <Grid item md={12} sx={{padding: 2}}>
-            <Button
-              type="submit"
-            >
-              Sign In
-            </Button>
-            <Button component={Link}
-              to="#!"
-              onClick={handleResetPassword}
-            >
-              Forgot Password?
-            </Button>
+    <Container sx={{ height: '100vh', marginTop: 15, maxWidth: '100%' }}>
+      
+        <Typography variant="h4" component='h5'>Login</Typography>
+        <Box sx={{ display: 'flex', flexFlow: 'column wrap', justifyContent: 'center', margin: 2}}>
+        
+          <form
+            onSubmit={handleSubmit}
+          >
+            <Grid container>
+            <Grid item md={12} sx={{ padding: 2 }}>
+              {error && <Typography variant="body1" component='p'>{error}</Typography>}
+              <TextField
+                type="email"
+                name="email"
+                id="email"
+                onChange={handleChange}
+                placeholder="eMail"
+              />
             </Grid>
-            <Grid item md={12} sx={{padding: 2}}>
-            <Button
-              onClick={handleGoogleSignin}
-            >
-              Google login
-            </Button>
-            <Typography sx={{ margin: 1 }} variant="body1" component={Link} to='/register'>Register</Typography>
-          </Grid>
-        </form>
-      </Grid>
-    </Box>
+            <Grid item md={12} sx={{ padding: 2 }}>
+              <TextField
+                type="password"
+                name="password"
+                id="password"
+                onChange={handleChange}
+                placeholder="*************"
+              />
+            </Grid>
+
+            <Grid item md={12} sx={{ padding: 2 }}>
+              <Button
+                type="submit"
+              >
+                Sign In
+              </Button>
+              <Button component={Link}
+                to="#!"
+                onClick={handleResetPassword}
+              >
+                Forgot Password?
+              </Button>
+            </Grid>
+            <Grid item md={12} sx={{ padding: 2 }}>
+              <Button
+                onClick={handleGoogleSignin}
+              >
+                Google login
+              </Button>
+              <Typography sx={{ margin: 1 }} variant="body1" component={Link} to='/register'>Register</Typography>
+            </Grid>
+            </Grid>
+          </form>
+       
+      </Box>
+    </Container>
   );
 }
 export default LoginScreen
