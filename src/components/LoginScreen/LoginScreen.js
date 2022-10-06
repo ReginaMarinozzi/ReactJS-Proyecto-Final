@@ -68,20 +68,24 @@ const LoginScreen = () => {
             <Grid item md={12} sx={{ padding: 2 }}>
               {error && <Typography variant="body1" component='p'>{error}</Typography>}
               <TextField
+               label='eMail'
                 type="email"
                 name="email"
                 id="email"
+                required
                 onChange={handleChange}
-                placeholder="eMail"
+              
               />
             </Grid>
             <Grid item md={12} sx={{ padding: 2 }}>
               <TextField
+              label='password'
                 type="password"
                 name="password"
                 id="password"
+                required
                 onChange={handleChange}
-                placeholder="*************"
+             
               />
             </Grid>
 

@@ -102,6 +102,8 @@ const RegisterScreen = () => {
                     type="password"
                     name="password"
                     label="password"
+                    helperText="Your password must Contain 8 Characters, One Uppercase, 
+                    One Lowercase, One Number and one special case Character "
                   />
                 </Grid>
                 <Grid item md={12} sx={{ margin: 1 }} >

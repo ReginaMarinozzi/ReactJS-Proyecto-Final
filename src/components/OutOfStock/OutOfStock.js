@@ -1,9 +1,23 @@
-import React from 'react';
-import { Box } from '@mui/system';
-import { CardMedia, Card, CardContent } from '@mui/material';
-import Typography from '@mui/material/Typography';
+import React from 'react'
+import { Box } from '@mui/system'
+import { CardMedia, Card, CardContent } from '@mui/material'
+import Typography from '@mui/material/Typography'
+import { useWishlistContext } from '../../context/WishlistContext'
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 
 const OutOfStock = ({ item }) => {
+  const { addToWishlist, isInWishlist } = useWishlistContext()
+
+  const handleWishlist = () => {
+    const itemToWishlist = {
+      id: item.id,
+      nombre: item.nombre,
+      precio: item.precio,
+      img: item.img
+    }
+
+    addToWishlist(itemToWishlist)
+  }
   return (
     <Card sx={{ marginTop: 12, marginBottom: 15, padding: 10, display: 'flex', justifyContent: 'center' }} >
 
@@ -15,6 +29,10 @@ const OutOfStock = ({ item }) => {
           <Typography align="center" variant="h4" component='h4' >{item.nombre}</Typography>
           <Typography variant="body1" component='p' align="justify">{item.descripcion}</Typography>
           <Typography variant="h5" component='h5' align="center" sx={{ padding: 2 }}>Precio $ {item.precio}</Typography>
+          {isInWishlist(item.id)
+              ? <Typography> Este producto ya esta en sus favoritos </Typography>
+              : <FavoriteBorderIcon onClick={handleWishlist}/>
+            }
         </CardContent>
 
         <Box variant='outline' sx={{ backgroundColor: 'grey' }}>

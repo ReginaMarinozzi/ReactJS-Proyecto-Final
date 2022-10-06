@@ -141,7 +141,7 @@ const Checkout = () => {
                                 </Grid>
                                 <Grid item md={12}>
                                     <Field
-                                        disabled={true}
+                                        disabled
                                         component={TextField}
                                         type="email"
                                         name="email"
