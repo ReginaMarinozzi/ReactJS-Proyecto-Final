@@ -1,13 +1,13 @@
-import * as React from 'react';
+import * as React from 'react'
 import { AppBar, Box, Typography, Toolbar, IconButton, Menu, Container, Avatar, Button, Tooltip, MenuItem } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu'
-import AdbIcon from '@mui/icons-material/Adb';
-import ShoppingCart from './CartWidget.js';
-import { Link, useNavigate } from 'react-router-dom';
+import AdbIcon from '@mui/icons-material/Adb'
+import ShoppingCart from './CartWidget.js'
+import { Link, useNavigate } from 'react-router-dom'
 import { useLoginContext } from '../../context/LoginContext'
-import { useState } from 'react';
-import InputBase from '@mui/material/InputBase';
-import { styled, alpha } from '@mui/material/styles';
+import { useState } from 'react'
+import InputBase from '@mui/material/InputBase'
+import { styled, alpha } from '@mui/material/styles'
 
 const settings = [
     {
@@ -34,7 +34,7 @@ const pages = [
         categoria: 'Makeup',
         link: '/productos/makeup'
     }
-];
+]
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -49,7 +49,7 @@ const Search = styled('div')(({ theme }) => ({
         marginLeft: theme.spacing(1),
         width: 'auto',
     },
-}));
+}))
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
     color: 'inherit',
@@ -77,29 +77,29 @@ const ResponsiveAppBar = () => {
             await logout()
             navigate("/")
         } catch (error) {
-            console.error(error.message);
+            console.error(error.message)
         }
     };
 
+    const [anchorElNav, setAnchorElNav] = React.useState(null)
 
-
-    const [anchorElNav, setAnchorElNav] = React.useState(null);
-    const [anchorElUser, setAnchorElUser] = React.useState(null);
+    const [anchorElUser, setAnchorElUser] = React.useState(null)
 
     const handleOpenNavMenu = (event) => {
-        setAnchorElNav(event.currentTarget);
-    };
+        setAnchorElNav(event.currentTarget)
+    }
+
     const handleOpenUserMenu = (event) => {
-        setAnchorElUser(event.currentTarget);
-    };
+        setAnchorElUser(event.currentTarget)
+    }
 
     const handleCloseNavMenu = () => {
-        setAnchorElNav(null);
-    };
+        setAnchorElNav(null)
+    }
 
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
-    };
+    }
 
     const navigate = useNavigate()
     const [search, setSearch] = useState("")
@@ -109,6 +109,14 @@ const ResponsiveAppBar = () => {
         navigate(`/search?name=${search}`)
     }
 
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const open = Boolean(anchorEl)
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget)
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
     return (
         <AppBar position="fixed" sx={{ bgcolor: '#e1aac1' }}>
             <Container maxWidth="xl">
@@ -161,7 +169,7 @@ const ResponsiveAppBar = () => {
                         >
 
                             {pages.map((page, index) => (
-                                <MenuItem key={index} onClick={handleCloseNavMenu} component={Link} to={page.link}>
+                                <MenuItem key={index} component={Link} to={page.link}>
                                     {page.categoria}
                                 </MenuItem>
                             ))}
@@ -192,7 +200,11 @@ const ResponsiveAppBar = () => {
                             <Button
                                 key={index}
                                 component={Link} to={page.link}
-                                onClick={handleCloseNavMenu}
+                                id='resources-button'
+                                aria-controls={open ? 'resources-menu' : undefined}
+                                aria-haspopup='true'
+                                aria-expanded={open ? 'true' : undefined}
+                                onClick={handleClick}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
                                 {page.categoria}
@@ -200,10 +212,29 @@ const ResponsiveAppBar = () => {
 
                         ))}
                     </Box>
+                    <Menu
+                        id='resources-menu'
+                        // component={Link} to={pages.link}
+                        anchorEl={anchorEl}
+                        open={open}
+                        onClose={handleClose}
+                        anchorOrigin={{
+                            vertical: 'bottom',
+                            horizontal: 'right'
+                        }}
+                        transformOrigin={{
+                            vertical: 'top',
+                            horizontal: 'right'
+                        }}
+                        MenuListProps={{
+                            'aria-labelledby': 'basic-button',
+                        }}>
+                        <MenuItem onClick={handleClose}>subcategoria</MenuItem>
+                    </Menu>
 
-                    <Search sx={{marginRight: 1}}>
+                    <Search sx={{ marginRight: 1 }}>
                         <form onSubmit={handleSubmit}>
-                            
+
                             <StyledInputBase
                                 placeholder="Buscar..."
                                 onChange={(e) => setSearch(e.target.value)}
@@ -285,7 +316,6 @@ const ResponsiveAppBar = () => {
                 </Toolbar>
             </Container>
         </AppBar>
-    );
-};
-export default ResponsiveAppBar;
-
+    )
+}
+export default ResponsiveAppBar

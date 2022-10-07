@@ -40,10 +40,7 @@ const Checkout = () => {
                 nombre: Yup.string()
                     .required('Requerido'),
                 direccion: Yup.string()
-                    .required('Requerido'),
-                email: Yup.string()
-                    .email('eMail incorrecto')
-                    .required('Requerido'),
+                    .required('Requerido'), 
                 telefono: Yup.string()
                     .matches(phoneRegExp, 'Telefono incorrecto')
                     .required('Requerido'),
