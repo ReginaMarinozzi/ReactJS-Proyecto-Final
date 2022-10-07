@@ -24,15 +24,15 @@ const pages = [
 
     {
         categoria: 'Skincare',
-        link: "/productos/skincare"
+        link: "producto/skincare"
     },
     {
         categoria: 'Fragance',
-        link: '/productos/fragance'
+        link: "producto/fragance"
     },
     {
         categoria: 'Makeup',
-        link: '/productos/makeup'
+        link: "producto/makeup"
     }
 ]
 
@@ -109,14 +109,6 @@ const ResponsiveAppBar = () => {
         navigate(`/search?name=${search}`)
     }
 
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const open = Boolean(anchorEl)
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget)
-    };
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
     return (
         <AppBar position="fixed" sx={{ bgcolor: '#e1aac1' }}>
             <Container maxWidth="xl">
@@ -169,7 +161,9 @@ const ResponsiveAppBar = () => {
                         >
 
                             {pages.map((page, index) => (
-                                <MenuItem key={index} component={Link} to={page.link}>
+                                <MenuItem
+                                    key={index}
+                                    component={Link} to={page.link} >
                                     {page.categoria}
                                 </MenuItem>
                             ))}
@@ -200,11 +194,6 @@ const ResponsiveAppBar = () => {
                             <Button
                                 key={index}
                                 component={Link} to={page.link}
-                                id='resources-button'
-                                aria-controls={open ? 'resources-menu' : undefined}
-                                aria-haspopup='true'
-                                aria-expanded={open ? 'true' : undefined}
-                                onClick={handleClick}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
                                 {page.categoria}
@@ -212,25 +201,7 @@ const ResponsiveAppBar = () => {
 
                         ))}
                     </Box>
-                    <Menu
-                        id='resources-menu'
-                        // component={Link} to={pages.link}
-                        anchorEl={anchorEl}
-                        open={open}
-                        onClose={handleClose}
-                        anchorOrigin={{
-                            vertical: 'bottom',
-                            horizontal: 'right'
-                        }}
-                        transformOrigin={{
-                            vertical: 'top',
-                            horizontal: 'right'
-                        }}
-                        MenuListProps={{
-                            'aria-labelledby': 'basic-button',
-                        }}>
-                        <MenuItem onClick={handleClose}>subcategoria</MenuItem>
-                    </Menu>
+
 
                     <Search sx={{ marginRight: 1 }}>
                         <form onSubmit={handleSubmit}>

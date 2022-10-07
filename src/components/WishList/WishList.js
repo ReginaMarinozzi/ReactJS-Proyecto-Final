@@ -4,7 +4,6 @@ import { useWishlistContext } from '../../context/WishlistContext'
 import DeleteIcon from '@mui/icons-material/Delete';
 import EmptyWishlist from '../EmptyWishlist/EmptyWishlist';
 
-
 const Wishlist = () => {
 
   const { wishlist, removeItemWishList } = useWishlistContext()
