@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { useState, useEffect } from 'react';
-import { db } from "../../firebase/config";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import * as React from 'react'
+import { useState, useEffect } from 'react'
+import { db } from "../../firebase/config"
+import { collection, getDocs, query, where } from "firebase/firestore"
 import { Container } from '@mui/system'
 import { useLocation } from 'react-router-dom'
 import Loader from '../Loader/Loader'
@@ -15,7 +15,7 @@ const SearchNavBar = () => {
         return new URLSearchParams(useLocation().search);
     }
     let search = (useQuery().get('name')).toLowerCase()
-    console.log(search)
+
     const [productos, setProductos] = useState([])
     const [loading, setLoading] = useState(true)
 
@@ -31,7 +31,7 @@ const SearchNavBar = () => {
         getDocs(q)
             .then((resp) => {
                 const productosDB = resp.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
-                console.log(productosDB)
+
                 setProductos(productosDB)
             })
             .finally(() => {
@@ -52,7 +52,7 @@ const SearchNavBar = () => {
                     : <Typography variant="h5" component='p'>No hay productos que coincidan con tu búsqueda</Typography>)}
         </Container>
 
-    );
+    )
 }
 
 export default SearchNavBar

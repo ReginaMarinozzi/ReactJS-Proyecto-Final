@@ -24,15 +24,15 @@ const pages = [
 
     {
         categoria: 'Skincare',
-        link: "producto/skincare"
+        link: "productos/skincare"
     },
     {
         categoria: 'Fragance',
-        link: "producto/fragance"
+        link: "productos/fragance"
     },
     {
         categoria: 'Makeup',
-        link: "producto/makeup"
+        link: "productos/makeup"
     }
 ]
 
@@ -159,11 +159,8 @@ const ResponsiveAppBar = () => {
                                 display: { xs: 'block', md: 'none' },
                             }}
                         >
-
                             {pages.map((page, index) => (
-                                <MenuItem
-                                    key={index}
-                                    component={Link} to={page.link} >
+                                <MenuItem component={Link} to={page.link} key={index} onClick={handleCloseNavMenu}>
                                     {page.categoria}
                                 </MenuItem>
                             ))}
@@ -188,20 +185,20 @@ const ResponsiveAppBar = () => {
                         R STORE
 
                     </Typography>
+
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page, index) => (
-
                             <Button
+                                component={Link}
+                                to={page.link}
                                 key={index}
-                                component={Link} to={page.link}
+                                onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
                                 {page.categoria}
                             </Button>
-
                         ))}
                     </Box>
-
 
                     <Search sx={{ marginRight: 1 }}>
                         <form onSubmit={handleSubmit}>
