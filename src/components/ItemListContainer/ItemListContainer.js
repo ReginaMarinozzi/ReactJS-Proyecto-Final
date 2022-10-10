@@ -37,7 +37,7 @@ const ItemListContainer = () => {
     return (
 
         <Stack
-            m={10}
+            m={20}
         >
             {loading ? <Loader /> : <ItemList productos={productos} />}
         </Stack>

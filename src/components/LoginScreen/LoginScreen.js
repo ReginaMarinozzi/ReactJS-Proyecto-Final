@@ -119,6 +119,7 @@ const LoginScreen = () => {
           spacing={2}
           justifyContent="center"
           alignItems="center"
+          direction='row'
         >
           <Button
             type="submit"

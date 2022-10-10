@@ -40,7 +40,7 @@ const RelatedItems = ({ categoria }) => {
 
     return (
         <Stack
-            mt={15}
+            mt={10}
         >
             {loading
                 ? <Loader />
@@ -57,7 +57,7 @@ const RelatedItems = ({ categoria }) => {
                     >
                         {productos.map((prod) => {
                             return <Grid item
-                                md={4}
+                                md={3}
                                 key={prod.id}
                             >
                                 <Card>

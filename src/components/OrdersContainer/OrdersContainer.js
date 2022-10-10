@@ -7,7 +7,7 @@ import Loader from '../Loader/Loader'
 import OrderList from '../OrderList/OrderList'
 import { useLoginContext } from '../../context/LoginContext'
 
-const OrdersContainer = () => {
+const OrdersContainer = ({ orderId }) => {
 
     const [ordenes, setOrdenes] = useState([])
 
@@ -26,14 +26,13 @@ const OrdersContainer = () => {
 
         getDocs(q)
             .then((resp) => {
-                const ordenesDB = resp.docs.map((doc) => doc.data())
+                const ordenesDB = resp.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
                 setOrdenes(ordenesDB)
             })
             .finally(() => {
                 setLoading(false)
             })
     }, [user.uid])
-
 
     return (
         <Container>

@@ -37,6 +37,14 @@ const CompraExitosa = ({ orderId }) => {
                 >
                     Volver al inicio
                 </Button>
+                <Button
+                    color='primary'
+                    size='large'
+                    component={Link} to='/ordenes'
+                >
+                    Ver mis ordenes
+                </Button>
+
             </Stack>
         </Stack>
 

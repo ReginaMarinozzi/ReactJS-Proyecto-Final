@@ -3,7 +3,6 @@ import { Stack, Typography, Card, CardContent, CardMedia } from "@mui/material"
 
 const Orders = ({ orden }) => {
 
-  console.log(orden)
   return (
 
     <Card
@@ -17,8 +16,8 @@ const Orders = ({ orden }) => {
         Detalles de la orden
       </Typography>
       <CardContent
-        sx={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
-
+        sx={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}
+      >
         <Typography
           variant="h6"
           component='p'
@@ -38,7 +37,7 @@ const Orders = ({ orden }) => {
           component='p'
           m={1}
         >
-          Número de orden: { }
+          Número de orden: {orden.id}
         </Typography>
       </CardContent>
 

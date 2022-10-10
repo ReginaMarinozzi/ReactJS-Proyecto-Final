@@ -5,9 +5,9 @@ const ItemList = ({ productos = [] }) => {
 
     return (
 
-        <Grid container my={4} rowSpacing={2} columnSpacing={2}>
+        <Grid container spacing={4}>
             {productos.map((prod) => {
-                return <Grid md={4} key={prod.id}>
+                return <Grid md={3} key={prod.id}>
                     <Item producto={prod} />
                 </Grid>
             })}
