@@ -1,8 +1,7 @@
-import { Button, Divider, Typography, Box } from '@mui/material'
-import { Container } from '@mui/system'
+import { Button, Divider, Typography, Box, Stack, Grid } from '@mui/material'
 import { useWishlistContext } from '../../context/WishlistContext'
-import DeleteIcon from '@mui/icons-material/Delete';
-import EmptyWishlist from '../EmptyWishlist/EmptyWishlist';
+import DeleteIcon from '@mui/icons-material/Delete'
+import EmptyWishlist from '../EmptyWishlist/EmptyWishlist'
 
 const Wishlist = () => {
 
@@ -15,27 +14,92 @@ const Wishlist = () => {
   }
 
   return (
-    <Container sx={{ marginTop: 15, display: 'flex', flexFlow: 'column', justifyContent: 'center' }}>
-      <Typography variant="h2" component='h2' sx={{ padding: 2 }} >
+    <Stack m={15} >
+      <Typography
+        textAlign='center'
+        variant="h2"
+        component='h2'
+        mb={3}
+        p={2}
+      >
         Lista de productos deseados
       </Typography>
 
       <Divider />
+      {wishlist.map((item) => {
+        return <Box
+          key={item.id}
+        >
+          <Grid container
+            justifyContent="center"
+            alignItems="center"
+            spacing={2}
+          >
+            <Grid item
+              md={3}
+              my={1}
+              display='flex'
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Box
+                maxWidth="60%"
+                component='img'
+                src={item.img}
+                alt={item.name}
+              />
+            </Grid>
+            <Grid item
+              md={3}
+              display='flex'
+              justifyContent="center"
+              alignItems="center"
+              my={1}
+            >
+              <Typography
+                variant="h5"
+                component='h5'
+              >
+                {item.nombre}
+              </Typography>
+            </Grid>
+            <Grid item
+              md={3}
+              my={1}
+              display='flex'
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Typography
+                variant="h6"
+                component='h6'
+              >
+                Precio $ {item.precio}
+              </Typography>
+            </Grid>
+            <Grid item
+              md={3}
+              my={1}
+              display='flex'
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Button
+                variant="contained"
+                size='small'
+                color='error'
+                onClick={() => removeItemWishList(item.id)}>
+                <DeleteIcon />
+              </Button>
 
-      {wishlist.map((item) => (
-        <Container key={item.id} >
-          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            <Box sx={{ width: "10%", padding: 2 }} component='img' src={item.img} alt={item.name} />
-            <Typography sx={{ padding: 2 }} variant="h5" component='h5' >{item.nombre} </Typography>
-            <Typography sx={{ padding: 2 }} variant="h6" component='h6' >Precio $ {item.precio} </Typography>
-            <Button sx={{ margin: 1 }} variant="contained" size='small' color='error' onClick={() => removeItemWishList(item.id)}>
-              <DeleteIcon />
-            </Button>
-          </Box>
+            </Grid>
+          </Grid>
+
           <Divider />
-        </Container>
-      ))}
-    </Container>
+
+        </Box>
+      })}
+    </Stack>
   )
 }
 

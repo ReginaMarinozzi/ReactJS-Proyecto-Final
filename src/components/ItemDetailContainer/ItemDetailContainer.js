@@ -1,18 +1,16 @@
-import ItemDetail from '../ItemDetail/ItemDetail';
-import React from 'react';
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { Container } from '@mui/system';
-import Loader from '../Loader/Loader';
-import { doc, getDoc } from 'firebase/firestore';
-import { db } from '../../firebase/config';
+import ItemDetail from '../ItemDetail/ItemDetail'
+import React from 'react'
+import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
+import { Container } from '@mui/system'
+import Loader from '../Loader/Loader'
+import { doc, getDoc } from 'firebase/firestore'
+import { db } from '../../firebase/config'
 
 const ItemDetailContainer = () => {
 
     const [item, setItem] = useState(null)
-
     const [loading, setLoading] = useState(true)
-
     const { itemId } = useParams()
 
     useEffect(() => {
@@ -31,11 +29,9 @@ const ItemDetailContainer = () => {
     }, [itemId])
 
     return (
-        <Container sx={{ marginTop: 10 }}>
+        <Container>
             {loading ? <Loader /> : <ItemDetail item={item} />}
         </Container>
-
-
     )
 }
 

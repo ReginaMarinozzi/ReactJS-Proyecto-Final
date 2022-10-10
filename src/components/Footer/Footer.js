@@ -1,13 +1,13 @@
-import { Box, Typography } from '@mui/material'
+import { Stack, Typography } from '@mui/material'
 import React from 'react'
 
 const Footer = () => {
   return (
-    <Box sx={{ bgcolor: '#e1aac1', padding: 10 }}>
+    <Stack p={10} sx={{ bgcolor: '#e1aac1'}}>
       <Typography variant="h4" component='p'>
         FOOTER
       </Typography>
-    </Box>
+    </Stack>
   )
 }
 

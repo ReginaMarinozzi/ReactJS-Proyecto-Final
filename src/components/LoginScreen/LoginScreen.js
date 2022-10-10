@@ -57,35 +57,35 @@ const LoginScreen = () => {
 
   return (
     <Container sx={{ height: '100vh', marginTop: 15, maxWidth: '100%' }}>
-      
-        <Typography variant="h4" component='h5'>Login</Typography>
-        <Box sx={{ display: 'flex', flexFlow: 'column wrap', justifyContent: 'center', margin: 2}}>
-        
-          <form
-            onSubmit={handleSubmit}
-          >
-            <Grid container>
+
+      <Typography variant="h4" component='h5'>Login</Typography>
+      <Box sx={{ display: 'flex', flexFlow: 'column wrap', justifyContent: 'center', margin: 2 }}>
+
+        <form
+          onSubmit={handleSubmit}
+        >
+          <Grid container>
             <Grid item md={12} sx={{ padding: 2 }}>
               {error && <Typography variant="body1" component='p'>{error}</Typography>}
               <TextField
-               label='eMail'
+                label='eMail'
                 type="email"
                 name="email"
                 id="email"
                 required
                 onChange={handleChange}
-              
+
               />
             </Grid>
             <Grid item md={12} sx={{ padding: 2 }}>
               <TextField
-              label='password'
+                label='password'
                 type="password"
                 name="password"
                 id="password"
                 required
                 onChange={handleChange}
-             
+
               />
             </Grid>
 
@@ -110,9 +110,9 @@ const LoginScreen = () => {
               </Button>
               <Typography sx={{ margin: 1 }} variant="body1" component={Link} to='/register'>Register</Typography>
             </Grid>
-            </Grid>
-          </form>
-       
+          </Grid>
+        </form>
+
       </Box>
     </Container>
   );

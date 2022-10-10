@@ -1,9 +1,8 @@
-import { Box, Button, Typography, Grid } from '@mui/material';
-import { Formik, Form, Field } from 'formik';
-import { Container } from '@mui/system'
-import { TextField } from 'formik-mui';
-import * as React from 'react';
-import * as Yup from 'yup';
+import { Button, Typography, Grid, Stack } from '@mui/material'
+import { Formik, Form, Field } from 'formik'
+import { TextField } from 'formik-mui'
+import * as React from 'react'
+import * as Yup from 'yup'
 import { useState } from "react"
 import { Navigate } from "react-router-dom"
 import { useCartContext } from "../../context/CartContext"
@@ -40,7 +39,7 @@ const Checkout = () => {
                 nombre: Yup.string()
                     .required('Requerido'),
                 direccion: Yup.string()
-                    .required('Requerido'), 
+                    .required('Requerido'),
                 telefono: Yup.string()
                     .matches(phoneRegExp, 'Telefono incorrecto')
                     .required('Requerido'),
@@ -101,69 +100,105 @@ const Checkout = () => {
         >
             {({ submitForm, isSubmitting }) => (
 
-                <Container sx={{ marginTop: 15 }}>
-                    <Typography sx={{ padding: 5 }} variant="h4" component='h5'>Checkout</Typography>
+                <Stack
+                    m={20}
+                    alignItems="center"
+                    height='100vh'
+                >
+                    <Typography
+                        variant="h4"
+                        component='h5'
+                        mb={4}
+                    >
+                        Checkout
+                    </Typography>
 
-                    <Box sx={{ display: 'flex', flexFlow: 'column wrap', margin: 2 }}>
-                        <Grid container padding={5} rowSpacing={2} columnSpacing={1} >
-                            <Form >
-                                <Grid item md={12}>
+                    <Form
+                    >
+                        <Grid container
+                            justifyContent="center"
+                            alignItems="center"
+                            spacing={2}
+                        >
+                            <Grid item
+                                md={6}
+                                display='flex'
+                                justifyContent="center"
+                                alignItems="center"
+                            >
+                                <Field
+                                    fullWidth
+                                    component={TextField}
+                                    name="nombre"
+                                    type="nombre"
+                                    label="Nombre"
+                                />
+                            </Grid>
+                            <Grid item
+                                md={6}
+                                display='flex'
+                                justifyContent="center"
+                                alignItems="center"
+                            >
+                                <Field
+                                    fullWidth
+                                    component={TextField}
+                                    name="apellido"
+                                    type="apellido"
+                                    label="Apellido"
+                                />
+                            </Grid>
+                            <Grid item
+                                md={6}
+                                display='flex'
+                                justifyContent="center"
+                                alignItems="center"
+                            >
+                                <Field
+                                    fullWidth
+                                    component={TextField}
+                                    type="direccion"
+                                    name="direccion"
+                                    label="Direccion"
+                                />
+                            </Grid>
+                            <Grid item
+                                md={6}
+                                display='flex'
+                                justifyContent="center"
+                                alignItems="center"
+                            >
+                                <Field
+                                    fullWidth
+                                    component={TextField}
+                                    type="telefono"
+                                    name="telefono"
+                                    label="Telefono"
+                                />
+                            </Grid>
 
-                                    <Field
-                                        component={TextField}
-                                        name="nombre"
-                                        type="nombre"
-                                        label="Nombre"
-                                    />
-                                    <Field
-                                        component={TextField}
-                                        name="apellido"
-                                        type="apellido"
-                                        label="Apellido"
-                                    />
-                                </Grid>
-                                <Grid item md={12}>
-                                    <Field
-                                        component={TextField}
-                                        type="direccion"
-                                        name="direccion"
-                                        label="Direccion"
-                                    />
-                                    <Field
-                                        component={TextField}
-                                        type="telefono"
-                                        name="telefono"
-                                        label="Telefono"
-                                    />
-                                </Grid>
-                                <Grid item md={12}>
-                                    <Field
-                                        disabled
-                                        component={TextField}
-                                        type="email"
-                                        name="email"
-                                        label="eMail"
-                                        value={user.email}
-                                    />
-                                </Grid>
-                                <Button
-                                    variant="contained"
-                                    color="warning"
-                                    disabled={isSubmitting}
-                                    onClick={submitForm}
-                                    sx={{ margin: 3 }}
-                                    size='small'
-                                >
-                                    Enviar
-                                </Button>
-
-                            </Form>
                         </Grid>
-                    </Box>
-                </Container>
+
+                        <Stack
+                        >
+                            <Button
+                                variant="contained"
+                                color="warning"
+                                disabled={isSubmitting}
+                                onClick={submitForm}
+                                sx={{ margin: 3 }}
+                                size='small'
+                            >
+                                Enviar
+                            </Button>
+                        </Stack>
+
+                    </Form>
+                </Stack>
             )}
+
         </Formik>
-    );
+    )
 }
 
 export default Checkout

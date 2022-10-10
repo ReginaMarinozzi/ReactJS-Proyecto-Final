@@ -1,17 +1,30 @@
-import { Box } from '@mui/system'
 import React from 'react'
-import Typography from '@mui/material/Typography'
-import { Button, Divider } from '@mui/material'
+import { Button, Divider, Stack, Typography } from '@mui/material'
 import { Link } from 'react-router-dom'
 
 const EmptyWishlist = () => {
     return (
-        <Box>
-            <Typography sx={{ marginTop: 15, marginBottom: 3 }} variant="h2" component='h3' align='center'>Tu lista de deseos esta vacia</Typography>
-            <Divider sx={{ marginRight: 10, marginLeft: 10 }}/>
-            <Box sx={{display: 'flex', justifyContent: 'center', margin: 3 }} > <Button variant='contained' component={Link} to='/'>Ir al home</Button>
-            </Box>
-        </Box>
+        <Stack
+            height='50vh'
+            m={15}
+            justifyContent="center"
+            alignItems="center"
+            divider={<Divider orientation="horizontal" flexItem />}
+            spacing={2}>
+            <Typography
+                variant="h2"
+                component='h3'
+                align='center'
+            >
+                Tu lista de deseos está vacía
+            </Typography>
+            <Button
+                variant='contained'
+                component={Link} to='/'
+            >
+                Ir a comprar
+            </Button>
+        </Stack>
     )
 }
 

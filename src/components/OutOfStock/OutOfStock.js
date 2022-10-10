@@ -1,9 +1,9 @@
 import React from 'react'
-import { Box } from '@mui/system'
-import { CardMedia, Card, CardContent } from '@mui/material'
+import { CardMedia, Card, CardContent, Stack } from '@mui/material'
 import Typography from '@mui/material/Typography'
 import { useWishlistContext } from '../../context/WishlistContext'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
+import RelatedItems from '../RelatedItems/RelatedItems'
 
 const OutOfStock = ({ item }) => {
   const { addToWishlist, isInWishlist } = useWishlistContext()
@@ -19,11 +19,12 @@ const OutOfStock = ({ item }) => {
     addToWishlist(itemToWishlist)
   }
   return (
+    <Stack>
     <Card sx={{ marginTop: 12, marginBottom: 15, padding: 10, display: 'flex', justifyContent: 'center' }} >
 
       <CardMedia component="img" image={item.img} alt={item.descripcion} sx={{ borderRadius: `10px` }} />
 
-      <Box sx={{ marginTop: 3, padding: 5, display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+      <Stack sx={{ marginTop: 3, padding: 5, display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
 
         <CardContent align="justify">
           <Typography align="center" variant="h4" component='h4' >{item.nombre}</Typography>
@@ -35,15 +36,18 @@ const OutOfStock = ({ item }) => {
             }
         </CardContent>
 
-        <Box variant='outline' sx={{ backgroundColor: 'grey' }}>
+        <Stack variant='outline' sx={{ backgroundColor: 'grey' }}>
           <Typography variant="h5" component='h5' >
             Sin Stock
           </Typography>
-        </Box>
+        </Stack>
 
-      </Box>
+      </Stack>
 
     </Card>
+    <RelatedItems categoria={item.categoria} />
+    </Stack>
+
   )
 }
 

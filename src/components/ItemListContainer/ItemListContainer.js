@@ -1,11 +1,10 @@
-import { useState, useEffect } from "react";
-import ItemList from "../ItemList/ItemList";
-import { useParams } from "react-router-dom";
-import Container from '@mui/material/Container';
-import Loader from "../Loader/Loader";
-import { db } from "../../firebase/config";
-import { collection, getDocs, query, where } from "firebase/firestore";
-
+import { useState, useEffect } from "react"
+import ItemList from "../ItemList/ItemList"
+import { useParams } from "react-router-dom"
+import { Stack } from "@mui/material"
+import Loader from "../Loader/Loader"
+import { db } from "../../firebase/config"
+import { collection, getDocs, query, where } from "firebase/firestore"
 
 const ItemListContainer = () => {
     const [productos, setProductos] = useState([]);
@@ -18,7 +17,7 @@ const ItemListContainer = () => {
         setLoading(true)
 
         const productosRef = collection(db, 'productos')
-        
+
         const q = categoryId
             ? query(productosRef, where('categoria', '==', categoryId))
             : productosRef
@@ -35,13 +34,10 @@ const ItemListContainer = () => {
 
     }, [categoryId])
 
-
-
     return (
-        <Container sx={{ marginTop: 10 }}>
+        <Stack m={10}>
             {loading ? <Loader /> : <ItemList productos={productos} />}
-        </Container>
-
+        </Stack>
     )
 };
 
