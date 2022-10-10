@@ -3,14 +3,16 @@ import { Button, Divider, Stack, Typography } from '@mui/material'
 import { Link } from 'react-router-dom'
 
 const EmptyWishlist = () => {
+
     return (
+
         <Stack
-            height='50vh'
-            m={15}
-            justifyContent="center"
+            m={20}
+            height='100vh'
             alignItems="center"
             divider={<Divider orientation="horizontal" flexItem />}
-            spacing={2}>
+            spacing={2}
+        >
             <Typography
                 variant="h2"
                 component='h3'
@@ -25,6 +27,7 @@ const EmptyWishlist = () => {
                 Ir a comprar
             </Button>
         </Stack>
+
     )
 }
 

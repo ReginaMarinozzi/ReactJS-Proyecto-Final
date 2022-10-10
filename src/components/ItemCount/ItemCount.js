@@ -16,6 +16,7 @@ const ItemCount = ({ max, counter, handleAgregar, setCantidad }) => {
   }
 
   return (
+
     <Stack
       p={2}
       justifyContent='center'
@@ -51,6 +52,7 @@ const ItemCount = ({ max, counter, handleAgregar, setCantidad }) => {
         Agregar al carrito
       </Button>
     </Stack>
+
   )
 }
 

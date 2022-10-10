@@ -96,7 +96,7 @@ const Wishlist = () => {
           </Grid>
 
           <Divider />
-
+          
         </Box>
       })}
     </Stack>

@@ -1,20 +1,32 @@
 import React from 'react'
-import { Box, Container, Typography } from "@mui/material"
+import { Box, Stack, Typography } from "@mui/material"
 import Orders from '../Orders/Orders'
 
 const OrderList = ({ ordenes = [] }) => {
+
     return (
-        <Container>
-            <Typography variant="h3" sx={{ padding: 2 }}>
-                Historial de pedidos
+
+        <Stack
+            m={20}
+            spacing={3}
+        >
+            <Typography
+                m={2}
+                variant='h4'
+                component='h6'
+                textAlign='center'
+            >
+                Mis Ordenes
             </Typography>
             {ordenes.map((orden, index) => {
-              
-                return <Box key={index}>
+                return <Box
+                    key={index}
+                >
                     <Orders orden={orden} />
                 </Box>
             })}
-        </Container>
+        </Stack>
+
     )
 }
 

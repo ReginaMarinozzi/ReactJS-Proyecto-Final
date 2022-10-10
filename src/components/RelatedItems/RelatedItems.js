@@ -39,8 +39,8 @@ const RelatedItems = ({ categoria }) => {
     }
 
     return (
-        <Stack 
-        mt={5}
+        <Stack
+            mt={15}
         >
             {loading
                 ? <Loader />

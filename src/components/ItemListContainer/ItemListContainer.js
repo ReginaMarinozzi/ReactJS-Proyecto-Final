@@ -35,9 +35,13 @@ const ItemListContainer = () => {
     }, [categoryId])
 
     return (
-        <Stack m={10}>
+
+        <Stack
+            m={10}
+        >
             {loading ? <Loader /> : <ItemList productos={productos} />}
         </Stack>
+
     )
 };
 

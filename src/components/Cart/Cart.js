@@ -16,6 +16,7 @@ const Cart = () => {
     }
 
     return (
+
         <Stack m={15}>
 
             <Typography
@@ -150,6 +151,7 @@ const Cart = () => {
             </Stack>
 
         </Stack>
+        
     )
 }
 

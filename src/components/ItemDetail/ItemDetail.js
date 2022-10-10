@@ -1,17 +1,19 @@
 import ItemCount from '../ItemCount/ItemCount'
 import { useCartContext } from '../../context/CartContext'
 import { Link } from 'react-router-dom'
-import { Button, CardMedia, Card, CardContent, CardActions, Typography, Stack } from '@mui/material'
+import { Button, CardMedia, Typography, Stack, Card } from '@mui/material'
 import { useState } from 'react'
 import OutOfStock from '../OutOfStock/OutOfStock'
 import RelatedItems from '../RelatedItems/RelatedItems'
 import { useWishlistContext } from '../../context/WishlistContext'
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
+import FavoriteIcon from '@mui/icons-material/Favorite'
 
 const ItemDetail = ({ item }) => {
 
   const { addToCart, isInCart } = useCartContext()
+
   const { addToWishlist, isInWishlist } = useWishlistContext()
+
   const [cantidad, setCantidad] = useState(0)
 
   const handleAgregar = () => {
@@ -42,79 +44,87 @@ const ItemDetail = ({ item }) => {
     )
   }
 
-
   return (
 
     <Stack
-     m={15} 
+      m={15}
     >
       <Card
+        elevation={5}
       >
-        <CardMedia
-          component="img"
-          image={item.img}
-          alt={item.descripcion}
-        />
+        <Stack
+          direction="row"
+        >
+          <CardMedia
+            sx={{ my: 5, ml: 5, maxWidth: 450 }}
+            component="img"
+            image={item.img}
+            alt={item.descripcion}
+          />
 
-        <CardContent align="justify">
-          <Typography
-            align="center"
-            variant="h4"
-            component='h4'
+          <Stack
+            justifyContent='center'
+            p={5}
           >
-            {item.nombre}
-          </Typography>
-          <Typography
-            variant="body1"
-            component='p'
-            align="justify"
-          >
-            {item.descripcion}
-          </Typography>
-          <Typography
-            variant="h5"
-            component='h5'
-            align="center"
-          >
-            Precio $ {item.precio}
-          </Typography>
-
-          {isInWishlist(item.id)
-            ? <Typography
+            <Typography
+              variant="h4"
+              component='h4'
+              textTransform='capitalize'
+              fontWeight='600'
+              my={1}
+            >
+              {item.nombre}
+            </Typography>
+            <Typography
               variant="body1"
               component='p'
-              align="justify"
+              my={1}
             >
-              Este producto ya esta en sus favoritos
+              {item.descripcion}
             </Typography>
-            : <FavoriteBorderIcon onClick={handleWishlist} />
-          }
-        </CardContent>
-
-        <CardActions>
-          {isInCart(item.id)
-            ? <Button
-              variant="contained"
-              size='large'
-              color='success'
-              component={Link} to='/cart'
+            <Typography
+              variant="h5"
+              component='h5'
+              my={1}
             >
-              Terminar mi compra
-            </Button>
-            : <ItemCount
-              max={item.stock}
-              counter={cantidad}
-              setCantidad={setCantidad}
-              handleAgregar={handleAgregar}
-            />
-          }
-        </CardActions>
+              Precio $ {item.precio}
+            </Typography>
 
+            {isInWishlist(item.id)
+              ? <Typography
+                variant="body1"
+                component='p'
+              >
+                Item agregago a wishlist!
+              </Typography>
+              : <FavoriteIcon onClick={handleWishlist} />
+            }
+            <Stack>
+              {isInCart(item.id)
+                ? <Button
+                  variant="contained"
+                  size='large'
+                  color='success'
+                  component={Link} to='/cart'
+                >
+                  Terminar mi compra
+                </Button>
+                : <ItemCount
+                  max={item.stock}
+                  counter={cantidad}
+                  setCantidad={setCantidad}
+                  handleAgregar={handleAgregar}
+                />
+              }
+            </Stack>
+          </Stack>
+        </Stack>
       </Card>
 
       <RelatedItems categoria={item.categoria} />
 
     </Stack>
+    
   )
 }
 

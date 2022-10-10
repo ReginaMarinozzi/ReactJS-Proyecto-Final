@@ -3,11 +3,12 @@ import { Button, Divider, Typography, Stack } from '@mui/material'
 import { Link } from 'react-router-dom'
 
 const CompraExitosa = ({ orderId }) => {
+
     return (
+
         <Stack
-            height='50vh'
-            m={15}
-            justifyContent="center"
+            m={20}
+            height='100vh'
             alignItems="center"
             divider={<Divider orientation="horizontal" flexItem />}
             spacing={2}>
@@ -38,6 +39,7 @@ const CompraExitosa = ({ orderId }) => {
                 </Button>
             </Stack>
         </Stack>
+
     )
 }
 

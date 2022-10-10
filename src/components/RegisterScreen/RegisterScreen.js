@@ -4,8 +4,7 @@ import * as Yup from 'yup'
 import { useLoginContext } from '../../context/LoginContext'
 import { useNavigate, Link } from "react-router-dom"
 import { TextField } from 'formik-mui'
-import { Button, Typography, Box, Grid } from '@mui/material'
-import { Container } from '@mui/system'
+import { Button, Typography, Grid, Stack } from '@mui/material'
 import { useState } from "react"
 
 
@@ -49,80 +48,138 @@ const RegisterScreen = () => {
           navigate(-1)
         } catch (error) {
           if (error.code === 'auth/email-already-in-use')
-          setError('El usuario ya existe')
+            setError('El usuario ya existe')
         }
       }}
     >
       {({ submitForm, isSubmitting }) => (
-        <Container sx={{ marginTop: 15 }}>
+        <Stack
+          m={20}
+          alignItems="center"
+          height='100vh'
+        >
+          <Typography
+            variant="h4"
+            component='h5'
+            mb={5}
+          >
+            Register
+          </Typography>
 
-          <Typography variant="h4" component='h5' sx={{ marginBottom: 5 }}>Register</Typography>
-          <Box>
-            <Grid container spacing={3} >
-              <Form >
-                <Grid item md={12}>
-                  {error && <Typography variant="body1" component='p'>{error}</Typography>}
-                  <Field sx={{ margin: 1 }}
-                    component={TextField}
-                    type="nombre"
-                    name="nombre"
-                    label="Nombre"
-                  />
-                  <Field sx={{ margin: 1 }}
-                    component={TextField}
-                    type="apellido"
-                    name="apellido"
-                    label="Apellido"
-                  />
-                </Grid>
-                <Grid item md={12}>
-                  <Field sx={{ margin: 1 }}
-                    component={TextField}
-                    type="direccion"
-                    name="direccion"
-                    label="Dirección"
-                  />
-                  <Field sx={{ margin: 1 }}
-                    component={TextField}
-                    type="telefono"
-                    name="telefono"
-                    label="Telefono"
+          <Form >
 
-                  />
-                </Grid>
-                <Grid item md={12}>
-                  <Field sx={{ margin: 1 }}
-                    component={TextField}
-                    type="email"
-                    name="email"
-                    label="eMail"
-                  />
-                  <Field sx={{ margin: 1 }}
-                    component={TextField}
-                    type="password"
-                    name="password"
-                    label="password"
-                    helperText="Your password must Contain 8 Characters, One Uppercase, 
-                    One Lowercase, One Number and one special case Character "
-                  />
-                </Grid>
-                <Grid item md={12} sx={{ margin: 1 }} >
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    disabled={isSubmitting}
-                    onClick={submitForm}
+            <Grid container
+              justifyContent="center"
+              spacing={2}
+            >
+              <Grid item
+                md={6}
+              >
+                {error &&
+                  <Typography
+                    variant="body1"
+                    component='p'
                   >
-                    Crear Usuario
-                  </Button>
-                  <Typography sx={{ margin: 1 }} variant="body1" component={Link} to='/login'>Already have an Account?</Typography>
-                </Grid>
-              </Form>
+                    {error}
+                  </Typography>}
+                <Field
+                  component={TextField}
+                  fullWidth
+                  type="nombre"
+                  name="nombre"
+                  label="Nombre"
+                />
+              </Grid>
+              <Grid item
+                md={6}
+              >
+                <Field
+                  component={TextField}
+                  fullWidth
+                  type="apellido"
+                  name="apellido"
+                  label="Apellido"
+                />
+              </Grid>
+              <Grid item
+                md={6}
+              >
+                <Field
+                  component={TextField}
+                  fullWidth
+                  type="direccion"
+                  name="direccion"
+                  label="Dirección"
+                />
+              </Grid>
+              <Grid item
+                md={6}
+              >
+                <Field
+                  component={TextField}
+                  fullWidth
+                  type="telefono"
+                  name="telefono"
+                  label="Telefono"
+
+                />
+              </Grid>
+              <Grid item
+                md={6}
+              >
+                <Field
+                  component={TextField}
+                  fullWidth
+                  type="email"
+                  name="email"
+                  label="eMail"
+                />
+              </Grid>
+              <Grid item
+                md={6}
+              >
+                <Field
+                  component={TextField}
+                  fullWidth
+                  type="password"
+                  name="password"
+                  label="password"
+                  helperText="Your password must Contain 8 Characters, One Uppercase, 
+                    One Lowercase, One Number and one special case Character"
+                />
+              </Grid>
+
             </Grid>
-          </Box>
-        </Container>
+
+            <Stack
+              mt={2}
+              spacing={2}
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Button
+                variant="contained"
+                color="primary"
+                disabled={isSubmitting}
+                onClick={submitForm}
+              >
+                Crear Usuario
+              </Button>
+              <Typography
+                variant="body1"
+                component={Link} to='/login'
+                sx={{ textDecoration: 'none'}}
+              >
+                Already have an Account?
+              </Typography>
+            </Stack>
+
+          </Form>
+
+        </Stack>
       )}
-    </Formik>
+
+    </Formik >
   )
 }
 

@@ -3,11 +3,12 @@ import { Button, Divider, Stack, Typography } from '@mui/material'
 import { Link } from 'react-router-dom'
 
 const EmptyCart = () => {
+
     return (
+
         <Stack
-            height='50vh'
-            m={10}
-            justifyContent="center"
+            m={20}
+            height='100vh'
             alignItems="center"
             divider={<Divider orientation="horizontal" flexItem />}
             spacing={2}>
@@ -22,6 +23,7 @@ const EmptyCart = () => {
                 Ir a comprar
             </Button>
         </Stack>
+
     )
 }
 

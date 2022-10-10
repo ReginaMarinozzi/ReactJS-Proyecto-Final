@@ -10,7 +10,9 @@ import { db } from '../../firebase/config'
 const ItemDetailContainer = () => {
 
     const [item, setItem] = useState(null)
+
     const [loading, setLoading] = useState(true)
+
     const { itemId } = useParams()
 
     useEffect(() => {
@@ -29,9 +31,11 @@ const ItemDetailContainer = () => {
     }, [itemId])
 
     return (
+
         <Container>
             {loading ? <Loader /> : <ItemDetail item={item} />}
         </Container>
+
     )
 }
 
