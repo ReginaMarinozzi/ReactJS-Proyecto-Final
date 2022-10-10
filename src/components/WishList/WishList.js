@@ -14,6 +14,7 @@ const Wishlist = () => {
   }
 
   return (
+
     <Stack m={15} >
       <Typography
         textAlign='center'
@@ -96,10 +97,11 @@ const Wishlist = () => {
           </Grid>
 
           <Divider />
-          
+
         </Box>
       })}
     </Stack>
+    
   )
 }
 

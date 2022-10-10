@@ -1,13 +1,13 @@
 import React from 'react'
 import { collection, getDocs, query, where } from "firebase/firestore"
 import { db } from "../../firebase/config"
-import { useEffect, useState } from 'react';
-import { Container } from '@mui/system';
+import { useEffect, useState } from 'react'
+import { Container } from '@mui/system'
 import Loader from '../Loader/Loader'
 import OrderList from '../OrderList/OrderList'
 import { useLoginContext } from '../../context/LoginContext'
 
-const OrdersContainer = ({ orderId }) => {
+const OrdersContainer = () => {
 
     const [ordenes, setOrdenes] = useState([])
 

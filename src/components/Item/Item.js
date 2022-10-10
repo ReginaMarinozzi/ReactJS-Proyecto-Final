@@ -22,7 +22,8 @@ const Item = ({ producto }) => {
 
         <Card
             pb={2}
-            elevation={5}>
+            elevation={5}
+            >
             <CardMedia
                 component="img"
                 height="auto"
@@ -69,7 +70,7 @@ const Item = ({ producto }) => {
                             component='p'
                             color="text.secondary"
                         >
-                           Sin Stock
+                            Sin Stock
                         </Typography>}
                     {isInWishlist(producto.id)
                         ? <Typography
@@ -89,7 +90,7 @@ const Item = ({ producto }) => {
                 </Stack>
             </CardContent>
         </Card>
-        
+
     )
 }
 

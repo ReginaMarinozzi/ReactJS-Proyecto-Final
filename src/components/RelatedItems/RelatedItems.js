@@ -3,7 +3,7 @@ import Loader from "../Loader/Loader"
 import { db } from "../../firebase/config"
 import { collection, getDocs, query, where } from "firebase/firestore"
 import { useNavigate, useParams } from "react-router-dom"
-import { Typography, Card, CardMedia, CardContent, Grid, Stack } from "@mui/material"
+import { Typography, Box, Grid, Stack, Card } from "@mui/material"
 
 const RelatedItems = ({ categoria }) => {
 
@@ -47,12 +47,12 @@ const RelatedItems = ({ categoria }) => {
                 : <Stack productos={productos}>
                     <Typography
                         variant="h5"
-                        component='h5'
-                        align="center">
+                        component='h6'
+                        align="center"
+                    >
                         Productos Relacionados
                     </Typography>
                     <Grid container
-                        my={4}
                         spacing={4}
                     >
                         {productos.map((prod) => {
@@ -60,18 +60,28 @@ const RelatedItems = ({ categoria }) => {
                                 md={3}
                                 key={prod.id}
                             >
-                                <Card>
-                                    <CardContent
+                                <Card
+                                    elevation={5}
+                                    onClick={handleNavigation}
+                                    sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+                                >
+                                    <Typography
+                                        variant="h6"
+                                        component='p'
+                                        align="center"
+                                        textTransform='capitalize'
                                     >
                                         {prod.nombre}
-                                    </CardContent>
-                                    <CardMedia
-                                        onClick={() => handleNavigation(prod.id)}
-                                        component="img"
-                                        image={prod.img}
+                                    </Typography>
+                                    <Box
+                                        sx={{ paddingBottom: 5 }}
+                                        maxWidth="60%"
+                                        component='img'
+                                        src={prod.img}
                                         alt={prod.descripcion}
                                     />
                                 </Card>
+
                             </Grid>
                         })}
                     </Grid>

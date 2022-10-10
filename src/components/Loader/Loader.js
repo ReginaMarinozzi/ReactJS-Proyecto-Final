@@ -7,7 +7,6 @@ const Loader = () => {
   return (
 
     <Stack 
-    mt={10}
     mb={100}
     mx={20} 
     sx={{  color: 'grey.500' }}
