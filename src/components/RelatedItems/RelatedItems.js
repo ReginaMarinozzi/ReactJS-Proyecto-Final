@@ -2,8 +2,8 @@ import { useState, useEffect } from "react"
 import Loader from "../Loader/Loader"
 import { db } from "../../firebase/config"
 import { collection, getDocs, query, where } from "firebase/firestore"
-import { useNavigate, useParams } from "react-router-dom"
-import { Typography, Box, Grid, Stack, Card } from "@mui/material"
+import { Link, useParams } from "react-router-dom"
+import { Typography, CardMedia, Grid, Stack, Card, CardActionArea } from "@mui/material"
 
 const RelatedItems = ({ categoria }) => {
 
@@ -33,11 +33,6 @@ const RelatedItems = ({ categoria }) => {
 
     }, [categoria, itemId])
 
-    const navigate = useNavigate()
-    const handleNavigation = (prodId) => {
-        navigate(`/item/${prodId}`)
-    }
-
     return (
         <Stack
             mt={10}
@@ -49,37 +44,46 @@ const RelatedItems = ({ categoria }) => {
                         variant="h5"
                         component='h6'
                         align="center"
+                        mb={5}
                     >
                         Productos Relacionados
                     </Typography>
+
                     <Grid container
-                        spacing={4}
+                        rowSpacing={2}
+                        columnSpacing={2}
                     >
                         {productos.map((prod) => {
                             return <Grid item
-                                md={3}
+                                p={2}
+                                md={4}
                                 key={prod.id}
+                                sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
                             >
                                 <Card
                                     elevation={5}
-                                    onClick={handleNavigation}
-                                    sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+                                    sx={{ maxWidth: 200, padding: 2 }}
                                 >
-                                    <Typography
-                                        variant="h6"
-                                        component='p'
-                                        align="center"
-                                        textTransform='capitalize'
+                                    <CardActionArea
+                                        component={Link}
+                                        to={`/item/${prod.id}`}
                                     >
-                                        {prod.nombre}
-                                    </Typography>
-                                    <Box
-                                        sx={{ paddingBottom: 5 }}
-                                        maxWidth="60%"
-                                        component='img'
-                                        src={prod.img}
-                                        alt={prod.descripcion}
-                                    />
+                                        <Typography
+                                            variant="h6"
+                                            component='p'
+                                            align="center"
+                                            textTransform='capitalize'
+                                            mt={2}
+                                        >
+                                            {prod.nombre}
+                                        </Typography>
+                                        <CardMedia
+
+                                            component='img'
+                                            image={prod.img}
+                                            alt={prod.descripcion}
+                                        />
+                                    </CardActionArea>
                                 </Card>
 
                             </Grid>

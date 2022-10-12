@@ -6,7 +6,7 @@ const Orders = ({ orden }) => {
   return (
 
     <Card
-      sx={{ padding: 2, borderRadius: 3, marginBottom: 4 }}
+      sx={{ padding: 2, borderRadius: 3, marginBottom: 4}}
       elevation={8}
     >
       <Typography

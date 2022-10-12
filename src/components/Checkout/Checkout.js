@@ -106,13 +106,24 @@ const Checkout = () => {
                     alignItems="center"
                     height='100vh'
                 >
-                    <Typography
+                    <Stack
+                        mb={4}
+                        alignItems="center"
+                        spacing={2}
+                    >    <Typography
                         variant="h4"
                         component='h5'
-                        mb={4}
                     >
-                        Checkout
-                    </Typography>
+                            Checkout
+                        </Typography>
+                        <Typography
+                            variant="body1"
+                            component='p'
+
+                        >
+                            Para poder confirmar la compra, ingresa tus datos:
+                        </Typography>
+                    </Stack>
 
                     <Form
                     >

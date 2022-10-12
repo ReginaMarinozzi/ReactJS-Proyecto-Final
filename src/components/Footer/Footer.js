@@ -7,11 +7,11 @@ const Footer = () => {
   return (
 
     <Paper
-      sx={{ position: 'absolut', bottom: 0, left: 0, right: 0 }}
+      sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }}
       elevation={3}
     >
       <Stack
-        p={10}
+        p={1}
         sx={{ bgcolor: '#e1aac1' }}
         justifyContent='center'
         alignItems='center'

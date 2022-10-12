@@ -6,6 +6,7 @@ import { Container } from '@mui/system'
 import Loader from '../Loader/Loader'
 import OrderList from '../OrderList/OrderList'
 import { useLoginContext } from '../../context/LoginContext'
+import EmptyOrdenes from '../EmptyOrdenes/EmptyOrdenes'
 
 const OrdersContainer = () => {
 
@@ -33,6 +34,12 @@ const OrdersContainer = () => {
                 setLoading(false)
             })
     }, [user.uid])
+
+    if (ordenes.length === 0) {
+        return (
+            <EmptyOrdenes />
+        )
+    }
 
     return (
         <Container>

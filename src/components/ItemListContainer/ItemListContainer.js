@@ -37,12 +37,12 @@ const ItemListContainer = () => {
     return (
 
         <Stack
-            m={20}
+            m={15}
         >
             {loading ? <Loader /> : <ItemList productos={productos} />}
         </Stack>
 
     )
-};
+}
 
-export default ItemListContainer;
+export default ItemListContainer
