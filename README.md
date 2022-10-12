@@ -4,7 +4,7 @@ _REGINA STORE, es un ecommerce simulando una tienda de cuidados de la piel. Mi n
 
 ## Website Deploy 🏁
 
-
+https://chipper-monstera-e5a290.netlify.app/
 
 ## Comenzando 🚀
 
