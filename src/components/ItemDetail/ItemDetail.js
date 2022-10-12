@@ -106,6 +106,7 @@ const ItemDetail = ({ item }) => {
                   size='large'
                   color='success'
                   component={Link} to='/cart'
+                  sx={{ marginTop: 2}}
                 >
                   Terminar mi compra
                 </Button>

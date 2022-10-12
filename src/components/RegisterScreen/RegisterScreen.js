@@ -34,12 +34,12 @@ const RegisterScreen = () => {
         telefono: Yup.string()
           .matches(phoneRegExp, 'Telefono incorrecto')
           .required('Requerido'),
-        // password: Yup.string()
-        //   .required('Please Enter your password')
-        //   .matches(
-        //     /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
-        //     "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
-        //   )
+        password: Yup.string()
+          .required('Please Enter your password')
+          .matches(
+            /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+            "Debe tener 8 caracteres, una mayúscula, una minúscula, un número y un caracter especial"
+          )
       })}
       onSubmit={async (values) => {
         setError("")

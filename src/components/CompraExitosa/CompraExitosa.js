@@ -41,6 +41,7 @@ const CompraExitosa = ({ orderId }) => {
                     color='primary'
                     size='large'
                     component={Link} to='/ordenes'
+                    sx={{ marginTop: 1 }}
                 >
                     Ver mis ordenes
                 </Button>
