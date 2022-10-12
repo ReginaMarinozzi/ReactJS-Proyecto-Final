@@ -1,6 +1,6 @@
-# REGINA STORE - ReactJs - ecommerce
+# REGINA STORE - reactJs - ecommerce
 
-_REGINA STORE, es un ecommerce simulando una tienda de cuidados de la piel. Hola, mi nombre es Regina Marinozzi, cree esta web para mi proyecto final del curso de ReactJs que realicé en coderhouse en el año 2022._
+_REGINA STORE, es un ecommerce simulando una tienda de cuidados de la piel. Mi nombre es Regina Marinozzi, cree esta web para mi proyecto final del curso de ReactJs que realicé en coderhouse en el año 2022._
 
 ## Website Deploy 🏁
 
@@ -12,7 +12,6 @@ _Estas instrucciones te permitirán obtener una copia del proyecto en funcionami
 
 Que cosas necesitas para instalar el software y como instalarlas:
 
-```
 ### Node JS & React App
 
 1. Instalar Node JS de https://nodejs.org/en/
@@ -21,9 +20,15 @@ Que cosas necesitas para instalar el software y como instalarlas:
 ```
 $git clone https://github.com/ReginaMarinozzi/ReactJS-Proyecto-Final
 ```
+3. Abrir la consola en tu editor de código y cambiar el directorio en tu actual proyecto
+```
 $cd yourProjectDirectory
 ```
-4. Ejecutar la app (y cerrarla con Ctrl + C)
+4. Instalar las librerías
+```
+$npm install
+```
+5. Ejecutar la app (y cerrarla con Ctrl + C)
 ```
 $npm start
 ```
@@ -83,7 +88,10 @@ npm install sweetalert2
 
 * [React](https://es.reactjs.org/docs/create-a-new-react-app.html) - Ract App
 * [Material-ui](https://mui.com/) - Librería 
-* [Formik](https://formik.org/docs/tutorial) - Para el manejo de formularios
+* [Formik](https://formik.org/docs/tutorial) - Manejo de formularios
+* [Yup](https://www.npmjs.com/package/yup) - Validaciones de formularios
+* [Firebase](https://firebase.google.com/) - Base de datos
+* [sweetalert2](https://sweetalert2.github.io/) - Popups
 
 ## Autores ✒️
 
